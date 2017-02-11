@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => env('DB_CONNECTION', 'sqlite'),
 
 	/*
 	|--------------------------------------------------------------------------
