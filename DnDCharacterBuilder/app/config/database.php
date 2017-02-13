@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => env('DB_CONNECTION', 'sqlite'),
+	'default' => 'mysqlite'
 
 	/*
 	|--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ return array(
 
 		'sqlite' => array(
 			'driver'   => 'sqlite',
-			'database' => __DIR__.'/../database/database.sqlite',
+			'database' => __DIR__.'/../database/production.sqlite',
 			'prefix'   => '',
 		),
 
