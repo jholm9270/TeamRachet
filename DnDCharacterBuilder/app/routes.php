@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', function(){
+    return view('welcome');
 });
+Route::get('DnDBuilder', function()
+{
+	return view('DnDBuilder');
+});
+/*Route::get('foo', function () {
+    return 'Hello World';
+*/
