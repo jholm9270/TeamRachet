@@ -14,10 +14,10 @@
 Route::get('/', function(){
     return view('welcome');
 });
+Route::get('foo', function () {
+    return 'Hello World';
+});
 Route::get('DnDBuilder', function()
 {
-	return view('DnDBuilder');
+	return View::make('DnDBuilder');
 });
-/*Route::get('foo', function () {
-    return 'Hello World';
-*/

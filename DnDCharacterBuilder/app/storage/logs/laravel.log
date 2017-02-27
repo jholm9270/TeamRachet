@@ -1,0 +1,20 @@
+[2017-02-13 22:17:16] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';', expecting ')'' in C:\Users\Raul\TeamRachet\DnDCharacterBuilder\app\config\database.php:91
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2017-02-13 22:17:44] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';', expecting ')'' in C:\Users\Raul\TeamRachet\DnDCharacterBuilder\app\config\database.php:79
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2017-02-13 22:18:00] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';', expecting ')'' in C:\Users\Raul\TeamRachet\DnDCharacterBuilder\app\config\database.php:76
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2017-02-13 22:18:07] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';', expecting ')'' in C:\Users\Raul\TeamRachet\DnDCharacterBuilder\app\config\database.php:76
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2017-02-13 22:18:25] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected end of file, expecting ')'' in C:\Users\Raul\TeamRachet\DnDCharacterBuilder\app\config\database.php:77
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
