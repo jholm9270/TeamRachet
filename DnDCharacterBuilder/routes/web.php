@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('DnDBuilder', function () {
+    return view('DnDBuilder');
+});
+
+Route::get('php', function () {
+    return phpinfo();
+});
