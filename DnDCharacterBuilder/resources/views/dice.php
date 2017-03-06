@@ -1,20 +1,38 @@
-<input type="button" name="test" id="test" value="RUN" /><br/>
-
-
+<!DOCTYPE html>
+<html>
+<body>
 
 <?php
+$dice = array(
+array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
+array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
+array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
+array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
+array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
+array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)));
 
-$rolls = 24;
-$sides = 6;
 
-$results = array();
-
-for($i = 0; $i < $rolls; $i++) {
-	$results[] = rand(1,$sides);
+$stat = array("Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma");
+$length = count($stat);
+for ($row = 0; $row < $length; $row++) {
+echo"<p><b>$stat[$row]</b></p>";
+	echo "<ul>";
+	for($col = 0; $col < 4; $col++){
+		echo "<li>".$dice[$row][$col]."</li>";
+		}
+		echo "</ul>";
 }
-
-echo "Each roll:<ul><li>";
-echo implode("</li><li>", $results);
-echo "</li></ul>";
-
 ?>
+
+</body>
+</html>
+<form action="multidice.php" method="post">
+    <button name="click" class="click">Reroll?</button>
+</form>
+<form action="multidice.php" method="post">
+    <button name="click" class="click">Finalize</button>
+</form>
+
+
+
+
