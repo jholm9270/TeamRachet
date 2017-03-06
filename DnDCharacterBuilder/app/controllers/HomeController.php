@@ -17,6 +17,7 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
+		larave
 		return View::make('hello');
 	}
 
