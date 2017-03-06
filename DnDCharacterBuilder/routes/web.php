@@ -18,6 +18,17 @@ Route::get('DnDBuilder', function () {
     return view('DnDBuilder');
 });
 
+Route::get('DnDBuilder/{race?}', function($race=null){
+	$queryResult = DB::select('select * from Race where Race_Name = ?', [$race]);
+	//$results = DB::table('Race')-> select('*')-> where('Race_Name','=',$race);
+	$displayValues = array();
+	foreach($queryResult as $result){
+		$displayValues[] = $result;
+	}
+	//return $displayValues;
+	return view('DnDBuilder',['displayValues'=>$displayValues]);
+});
+
 Route::get('php', function () {
     return phpinfo();
 });

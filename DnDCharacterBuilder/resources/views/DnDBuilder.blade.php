@@ -6,48 +6,81 @@
 	<head>
 		<meta http-equiv="Content-Type"
 			content="text/html; charset=iso-8859-1" />
-		<link rel="stylesheet" href="{{ URL::asset('css/style.css'}}" type="text/css">
-				<title>DnD Character Builder</title>
+		<title>DnD Character Builder</title>
+		<style>
+			body {
+				width: 100%;
+			}
+				background-color: #/dedede;
+			header  {
+				color: red;
+				background-color: #/080808;
+				padding-top: 40px;
+				font-size: 33px;
+				height: 150px;
+				text-align: center;
+			}
+			footer  {
+				color: red;
+				background-color: #/080808;
+				font-size: 26px;
+				text-align: center;
+				clear: left;
+				height: 80px;
+				padding-top: 36px;
+			}
+			aside  {
+				background-color: #/dedede;
+				width: 150px;
+				float: left;
+				text-align: center;
+				font-size: 22px;
+				border-right: 1px solid #/080808;
+				padding-right: 20px;
+			}
+			section  {
+				text-align: center;
+			}
+				list-style-type: none;
+			}
+			a  {
+				text-decoration: none;
+				color: black;
+			}
+				color: red;
+			a:hover  {
+			}
+		</style>
 	</head>
 	<body>
 		<header>Character Builder</header>
 		<aside>
 			<ul>
-				<li><a href="?race=Human">Human</a></li>
-				<li><a href="?race=Elf">Elf</a></li>
-				<li><a href="?race=Dwarf">Dwarf</a></li>
-				<li><a href="?race=Halfling">Halfling</a></li>
-				<li><a href="?race=Dragonborn">Dragonborn</a></li>
-				<li><a href="?race=Gnome">Gnome</a></li>
-				<li><a href="?race=Half-Elf">Half-Elf</a></li>
-				<li><a href="?race=Half-Orc">Half-Orc</a></li>
-				<li><a href="?race=Tiefling">Tiefling</a></li>
+				<li><a href="#/Human">Human</a></li>
+				<li><a href="#/Elf">Elf</a></li>
+				<li><a href="#/Dwarf">Dwarf</a></li>
+				<li><a href="#/Halfling">Halfling</a></li>
+				<li><a href="#/Dragonborn">Dragonborn</a></li>
+				<li><a href="#/Gnome">Gnome</a></li>
+				<li><a href="#/Half-Elf">Half-Elf</a></li>
+				<li><a href="#/Half-Orc">Half-Orc</a></li>
+				<li><a href="#/Tiefling">Tiefling</a></li>
 				<!---->
 			</ul>
 		</aside>
 		<section>
 			<p>This is where each races information will be displayed<p>
+			<?php
+			print_r($displayValues)
+			// foreach($displayValues as $displayValue){
+				// echo $displayValue[];
+			 //}
+			?>
 			</html>
-			<?php
-			$db = new SQLite3('database.sqlite');
-			$dbquery = "SELECT * from Races where RaceName = '" . $_Get('race') ;
-			$results = $db->query($dbquery);
-	while ($row = $results->fetchArray()) {
-    var_dump($row);
-}
-
-			?>
-			<?php
-			$db = new SQLite3('database.sqlite');
-			$dbquery = "SELECT * from Races where RaceName = '" . $_Get('race') ;
-			$results = $db->query($dbquery);
-	while ($row = $results->fetchArray()) {
-    var_dump($row);
-}
-
-			?>
+			
+			
 			<html
 		</section>
-		<footer>&#?race=169; 2017 &#?race=9889; Team Rachet</footer>
+		<footer>&#/169; 2017 &#/9889; Team Rachet</footer>
 	</body>
 </html>
