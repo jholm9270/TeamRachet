@@ -6,52 +6,8 @@
 	<head>
 		<meta http-equiv="Content-Type"
 			content="text/html; charset=iso-8859-1" />
-		<style>
-			body {
-				width: 100%;
-				background-color: #?race=dedede;
-			}
-			header  {
-				color: red;
-				background-color: #?race=080808;
-				padding-top: 40px;
-				font-size: 33px;
-				text-align: center;
-				height: 150px;
-			}
-			footer  {
-				color: red;
-				background-color: #?race=080808;
-				font-size: 26px;
-				text-align: center;
-				height: 80px;
-				clear: left;
-				padding-top: 36px;
-			}
-			aside  {
-				background-color: #?race=dedede;
-				float: left;
-				width: 150px;
-				font-size: 22px;
-				text-align: center;
-				border-right: 1px solid #?race=080808;
-				padding-right: 20px;
-			}
-			section  {
-				text-align: center;
-			}
-			aside ul {
-				list-style-type: none;
-			}
-			a  {
-				text-decoration: none;
-				color: black;
-			}
-			a:hover  {
-				color: red;
-			}
-		</style>
-		<title>DnD Character Builder</title>
+		<link rel="stylesheet" href="{{ URL::asset('css/style.css'}}" type="text/css">
+				<title>DnD Character Builder</title>
 	</head>
 	<body>
 		<header>Character Builder</header>
