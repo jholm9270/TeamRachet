@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
   .ui-widget-content {width: 40px; height: 40px; padding: 0.5em; text-align: center; }
-  .ui-widget-header { width: 40px; height: 40px; padding: 0.5em; float: left; margin: 10px; }
+  .ui-widget-header { width: 60px; height: 60px; padding: 1.5em; text-align: center; float: left; margin: 10px;}
   .ul {list-style-type: none;}
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -56,7 +56,7 @@ echo"<p><b>$totals[$row]</b></p>";
 	<li id="6" data-roll="1" class="ui-widget-content"><?php echo $totals[5];?></li>
  </ul>
   <script>
- var test = [<?php Print($totals[0]);?>, <?php Print($totals[1]);?>, <?php Print($totals[2]);?>, <?php Print($totals[3]);?>, <?php Print($totals[4]);?>, <?php Print($totals[0]);?>];
+ var test = [<?php Print($totals[0]);?>, <?php Print($totals[1]);?>, <?php Print($totals[2]);?>, <?php Print($totals[3]);?>, <?php Print($totals[4]);?>, <?php Print($totals[5]);?>];
  $("#1").attr("data-roll", test[0]);
  $("#2").attr("data-roll", test[1]);
  $("#3").attr("data-roll", test[2]);
@@ -64,26 +64,24 @@ echo"<p><b>$totals[$row]</b></p>";
  $("#5").attr("data-roll", test[4]);
  $("#6").attr("data-roll", test[5]);
   $( function() {
-    $( ".ui-widget-content" ).draggable();
+    $( ".ui-widget-content" ).draggable({ snap: ".ui-widget-header", snapMode: "inner" });
     $( ".ui-widget-header" ).droppable({
-      drop: function( event, ui ) {
-        $( this )	
-		.addClass( "ui-state-highlight" )
-            .html( "Dropped!" );
-	
+      drop: function(event, ui ) {     
+       $(ui.draggable).draggable('disable');
+	   var id = ui.draggable.attr("data-roll");
+	   $(this).attr("data-roll", id);
       }
     });
   } );
   </script>
 <ul class="ul">
-<li id="Strength" class="ui-widget-header">Strength</li>
-<li id="Dexterity" class="ui-widget-header">Dexterity</li>
-<li id="Constitution" class="ui-widget-header">Constitution</li>
-<li id="Intelligence" class="ui-widget-header">Intelligence</li>
-<li id="Wisdom" class="ui-widget-header">Wisdom</li>
-<li id="Charisma" class="ui-widget-header">Charisma</li>
+<li id="Strength" data-roll="1" class="ui-widget-header">Strength</li>
+<li id="Dexterity" data-roll="1" class="ui-widget-header">Dexterity</li>
+<li id="Constitution" data-roll="1" class="ui-widget-header">Constitution</li>
+<li id="Intelligence" data-roll="1" class="ui-widget-header">Intelligence</li>
+<li id="Wisdom" data-roll="1" class="ui-widget-header">Wisdom</li>
+<li id="Charisma" data-roll="1" class="ui-widget-header">Charisma</li>
 </ul>
-
 
 </body>
 </html>
