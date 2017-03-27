@@ -15,8 +15,8 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 <body>
-
 <?php
+//Why
 $dice = array(
 array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
 array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
