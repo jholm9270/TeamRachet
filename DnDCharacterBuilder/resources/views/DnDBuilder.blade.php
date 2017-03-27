@@ -7,50 +7,7 @@
 		<meta http-equiv="Content-Type"
 			content="text/html; charset=iso-8859-1" />
 		<title>DnD Character Builder</title>
-		<style>
-			body {
-				width: 100%;
-			}
-				background-color: #/dedede;
-			header  {
-				color: red;
-				background-color: #/080808;
-				padding-top: 40px;
-				font-size: 33px;
-				height: 150px;
-				text-align: center;
-			}
-			footer  {
-				color: red;
-				background-color: #/080808;
-				font-size: 26px;
-				text-align: center;
-				clear: left;
-				height: 80px;
-				padding-top: 36px;
-			}
-			aside  {
-				background-color: #/dedede;
-				width: 150px;
-				float: left;
-				text-align: center;
-				font-size: 22px;
-				border-right: 1px solid #/080808;
-				padding-right: 20px;
-			}
-			section  {
-				text-align: center;
-			}
-				list-style-type: none;
-			}
-			a  {
-				text-decoration: none;
-				color: black;
-			}
-				color: red;
-			a:hover  {
-			}
-		</style>
+		<link rel="stylesheet" href="<?php echo asset('stylings/style.css')?>;" type="text/css" />
 	</head>
 	<body>
 	<?php
@@ -87,11 +44,11 @@
 			 //}
 			}
 			?>
-			</html>
 			
 			
-			<html
+			
+			
 		</section>
-		<footer>&#/169; 2017 &#/9889; Team Rachet</footer>
+		<footer>&#169; 2017 &#9889; Team Rachet</footer>
 	</body>
 </html>

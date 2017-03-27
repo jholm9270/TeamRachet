@@ -18,6 +18,10 @@ Route::get('DnDBuilder', function () {
     return view('DnDBuilder');
 });
 
+Route::get('Dice', function () {
+    return view('Dice');
+});
+
 Route::get('DnDBuilder/{race}', function($race=null){
 	$queryResult = DB::select('select * from Race where Race_Name = ?', [$race]);
 	//$results = DB::table('Race')-> select('*')-> where('Race_Name','=',$race);
