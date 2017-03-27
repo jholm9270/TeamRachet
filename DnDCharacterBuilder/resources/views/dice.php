@@ -9,6 +9,7 @@
   .ui-widget-content {width: 40px; height: 40px; padding: 0.5em; text-align: center; }
   .ui-widget-header { width: 60px; height: 60px; padding: 1.5em; text-align: center; float: left; margin: 10px;}
   .ul {list-style-type: none;}
+  #hidden { display: none;}
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -48,12 +49,12 @@ echo"<p><b>$totals[$row]</b></p>";
     <button name="click" class="click">Reroll?</button>
 </form> 
  <ul class="ul">
-	<li id="1" data-roll="1" class="ui-widget-content"><?php echo $totals[0];?></li>
-	<li id="2" data-roll="1" class="ui-widget-content"><?php echo $totals[1];?></li>
-	<li id="3" data-roll="1" class="ui-widget-content"><?php echo $totals[2];?></li>
-	<li id="4" data-roll="1" class="ui-widget-content"><?php echo $totals[3];?></li>
-	<li id="5" data-roll="1" class="ui-widget-content"><?php echo $totals[4];?></li>
-	<li id="6" data-roll="1" class="ui-widget-content"><?php echo $totals[5];?></li>
+	<li id="1" data-roll="0" class="ui-widget-content"><?php echo $totals[0];?></li>
+	<li id="2" data-roll="0" class="ui-widget-content"><?php echo $totals[1];?></li>
+	<li id="3" data-roll="0" class="ui-widget-content"><?php echo $totals[2];?></li>
+	<li id="4" data-roll="0" class="ui-widget-content"><?php echo $totals[3];?></li>
+	<li id="5" data-roll="0" class="ui-widget-content"><?php echo $totals[4];?></li>
+	<li id="6" data-roll="0" class="ui-widget-content"><?php echo $totals[5];?></li>
  </ul>
   <script>
  var test = [<?php Print($totals[0]);?>, <?php Print($totals[1]);?>, <?php Print($totals[2]);?>, <?php Print($totals[3]);?>, <?php Print($totals[4]);?>, <?php Print($totals[5]);?>];
@@ -68,23 +69,64 @@ echo"<p><b>$totals[$row]</b></p>";
     $( ".ui-widget-header" ).droppable({
       drop: function(event, ui ) {     
        $(ui.draggable).draggable('disable');
+	   $(this).droppable('disable');
 	   var id = ui.draggable.attr("data-roll");
 	   $(this).attr("data-roll", id);
       }
     });
   } );
-  </script>
+  $(function() {
+      $("#button").click( function()
+           {
+             $("#hidden").toggle("visibility");
+			 $(this).remove();
+			 $("#undo").remove();
+			 var Str = $("#Strength").attr("data-roll");
+			 document.getElementById("Str").innerHTML = Str;
+			 var Dex = $("#Dexterity").attr("data-roll");
+			 document.getElementById("Dex").innerHTML = Dex;
+			 var Con = $("#Constitution").attr("data-roll");
+			 document.getElementById("Con").innerHTML = Con;
+			 var Int = $("#Intelligence").attr("data-roll");
+			 document.getElementById("Int").innerHTML = Int;
+			 var Wis = $("#Wisdom").attr("data-roll");
+			 document.getElementById("Wis").innerHTML = Wis;
+			 var Char = $("#Charisma").attr("data-roll");
+			 document.getElementById("Char").innerHTML = Char;
+           }
+      );
+	});
+	</script>
 <ul class="ul">
-<li id="Strength" data-roll="1" class="ui-widget-header">Strength</li>
-<li id="Dexterity" data-roll="1" class="ui-widget-header">Dexterity</li>
-<li id="Constitution" data-roll="1" class="ui-widget-header">Constitution</li>
-<li id="Intelligence" data-roll="1" class="ui-widget-header">Intelligence</li>
-<li id="Wisdom" data-roll="1" class="ui-widget-header">Wisdom</li>
-<li id="Charisma" data-roll="1" class="ui-widget-header">Charisma</li>
+<li id="Strength" data-roll="0" class="ui-widget-header">Strength</li>
+<li id="Dexterity" data-roll="0" class="ui-widget-header">Dexterity</li>
+<li id="Constitution" data-roll="0" class="ui-widget-header">Constitution</li>
+<li id="Intelligence" data-roll="0" class="ui-widget-header">Intelligence</li>
+<li id="Wisdom" data-roll="0" class="ui-widget-header">Wisdom</li>
+<li id="Charisma" data-roll="0" class="ui-widget-header">Charisma</li>
 </ul>
+
+<ul class="ul" id="hidden">
+	<li>Strength:	<div id="Str"></li>
+	<li>Dexterity:	<div id="Dex"></div></li>
+	<li>Constitution:	<div id="Con"></div></li>
+	<li>Intelligence:	<div  id="Int"></div></li>
+	<li>Wisdom:	<div id="Wis"></div></li>
+	<li>Charisma:	<div id="Char"></div></li>
+</ul>
+
+
+
+<button id="undo" onclick="undo()">Undo!</button>
+ <script>
+  	function undo() {
+		$( ".ui-widget-content" ).draggable('enable');
+		$( ".ui-widget-header" ).droppable('enable')
+		$( ".ui-widget-header" ).attr("data-roll", 0);
+	}
+</script>
+<button id="button" class="click">Finalize!</button>
 
 </body>
 </html>
-<form action="multidice.php" method="post">
-    <button name="click" class="click">Finalize!</button>
-</form>
+
