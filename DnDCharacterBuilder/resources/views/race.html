@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+		body  {
+			height: 300px;
+			width: 700px;
+		}
+		h1 {
+			text-align: center;
+			
+		}
+		aside {
+			position: absolute;
+			display: inline;
+			-webkit-animation-delay: 100ms;
+			-moz-animation-delay: 100ms;
+			-MS-animation-delay: 100ms;
+		}
+		#racePic {
+			padding-left: 400px;
+			-webkit-animation-delay: 100ms;
+			-moz-animation-delay: 100ms;
+			-MS-animation-delay: 100ms;
+		}
+		
+		p  {
+			width: 120px;
+			position: absolute;
+			display: inline;
+			padding-left: 200px;
+			-webkit-animation-delay: 500ms;
+			-moz-animation-delay: 500ms;
+			-MS-animation-delay: 500ms;
+		}
+		button  {
+		    
+			margin-top: 40px;
+			margin-left: 40%;
+		}
+	</style>
+		<title>Race</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	</head>
+	<body>
+		
+		<h1 id="raceName" class="animated zoomIn"></h1>
+		<p id="raceInfo" class="animated fadeIn">
+			This is a human. He is not the ideal human, but he is human...I think.
+		</p>
+		<aside class="animated slideInLeft">
+			<table>
+				<tr>
+					<td class="tdName">Strength</td>
+					<td id="Str"></td>
+				</tr>
+				<tr>
+					<td class="tdName">Dexterity</td>
+					<td id="Dex">$Val</td>
+				</tr>
+				<tr>
+					<td class="tdName">Constitution</td>
+					<td id="Con">$Val</td>
+				</tr>
+				<tr>
+					<td class="tdName">Intelligence</td>
+					<td id="Int">$Val</td>
+				</tr>
+				<tr>
+					<td class="tdName">Wisdom</td>
+					<td id="Wis">$Val</td>
+				</tr>
+				<tr>
+					<td class="tdName">Charisma</td>
+					<td id="Cha">$Val</td>
+				</tr>
+				<tr>
+					<td class="tdName">Movement Speed</td>
+					<td id="Mov">$Val</td>
+				</tr>
+			</table>
+		</aside>
+		
+	
+		
+		<img id="racePic" class="animated slideInRight" src="human.jpg"/>
+	
+		<button>Choose This Race</button>
+		
+	</body>
+</html>
