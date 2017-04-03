@@ -40,15 +40,17 @@
 			if(isset($displayValues)){
 			//print_r($displayValues);
 			
-			
-			$RaceInfo = print_r($displayValues[0], true);
-			//print($RaceInfo);
-			$RaceInfoExploded = explode(" [", $RaceInfo);
-			//$RaceName = $RaceInfo;
-						
-			 foreach($RaceInfoExploded as $rie){
-				 print($rie);
-			 }
+			print_r($displayValues -> Race_Name);
+		$RaceName = print_r($displayValues -> Race_Name, true);
+		$StrModifier = print_r($displayValues -> Strength, true);
+		$DexModifier = print_r($displayValues -> Dexterity, true);
+		$ChaModifier = print_r($displayValues -> Charisma, true);
+		$WisModifier = print_r($displayValues -> Wisdom, true);
+		$ConModifier = print_r($displayValues -> Constitution, true);
+		$IntModifier = print_r($displayValues -> Intelligence, true);
+		$Movespeed = print_r($displayValues -> Move_Speed, true);
+//			print($RaceName)
+		
 			}
 			?>
 			

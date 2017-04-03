@@ -25,10 +25,10 @@ Route::get('Dice', function () {
 Route::get('DnDBuilder/{race}', function($race=null){
 	$queryResult = DB::select('select * from Race where Race_Name = ?', [$race]);
 	//$results = DB::table('Race')-> select('*')-> where('Race_Name','=',$race);
-	$displayValues = array();
-	foreach($queryResult as $result){
-		$displayValues[] = $result;
-	}
+	$displayValues = $queryResult[0];
+	//foreach($queryResult as $result){
+		//$displayValues[] = $result;
+	//}
 	//return $displayValues;
 	return view('DnDBuilder',['displayValues'=>$displayValues]);
 });
