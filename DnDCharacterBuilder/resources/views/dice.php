@@ -16,7 +16,7 @@
   </head>
 <body>
 <?php
-//Why
+//Dice Rolls
 $dice = array(
 array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
 array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
