@@ -38,10 +38,17 @@
 			<p>This is where each races information will be displayed<p>
 			<?php
 			if(isset($displayValues)){
-			print_r($displayValues);
-			// foreach($displayValues as $displayValue){
-				// echo $displayValue[];
-			 //}
+			//print_r($displayValues);
+			
+			
+			$RaceInfo = print_r($displayValues[0], true);
+			//print($RaceInfo);
+			$RaceInfoExploded = explode(" [", $RaceInfo);
+			//$RaceName = $RaceInfo;
+						
+			 foreach($RaceInfoExploded as $rie){
+				 print($rie);
+			 }
 			}
 			?>
 			
