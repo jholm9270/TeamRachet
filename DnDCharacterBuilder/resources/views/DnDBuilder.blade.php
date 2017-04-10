@@ -8,11 +8,9 @@
 			content="text/html; charset=iso-8859-1" />
 		<title>DnD Character Builder</title>
 		<link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	</head>
 	<body>
-	<?php
-	//$race ="Human";
-	?>
 		<header>Character Builder</header>
 		<aside>
 			<ul>
@@ -38,26 +36,60 @@
 			<p>This is where each races information will be displayed<p>
 			<?php
 			if(isset($displayValues)){
-			//print_r($displayValues);
-			
-			print_r($displayValues -> Race_Name);
-		$RaceName = print_r($displayValues -> Race_Name, true);
-		$StrModifier = print_r($displayValues -> Strength, true);
-		$DexModifier = print_r($displayValues -> Dexterity, true);
-		$ChaModifier = print_r($displayValues -> Charisma, true);
-		$WisModifier = print_r($displayValues -> Wisdom, true);
-		$ConModifier = print_r($displayValues -> Constitution, true);
-		$IntModifier = print_r($displayValues -> Intelligence, true);
-		$Movespeed = print_r($displayValues -> Move_Speed, true);
-//			print($RaceName)
+		$RaceName = $displayValues -> Race_Name;
+		$StrModifier = $displayValues -> Strength;
+		$DexModifier = $displayValues -> Dexterity;
+		$ChaModifier = $displayValues -> Charisma;
+		$WisModifier = $displayValues -> Wisdom;
+		$ConModifier = $displayValues -> Constitution;
+		$IntModifier = $displayValues -> Intelligence;
+		$Movespeed = $displayValues -> Move_Speed;
+		
+		echo $RaceName;
+			?>
+					<aside class="animated slideInLeft">
+			<table>
+				<tr>
+					<td class="tdName">Strength</td>
+					<td id="Str"><?php echo $StrModifier ;?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Dexterity</td>
+					<td id="Dex"><?php echo $DexModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Constitution</td>
+					<td id="Con"><?php echo $ConModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Intelligence</td>
+					<td id="Int"><?php echo $IntModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Wisdom</td>
+					<td id="Wis"><?php echo $WisModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Charisma</td>
+					<td id="Cha"><?php echo $ChaModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Movement Speed</td>
+					<td id="Mov"><?php echo $Movespeed; ?></td>
+				</tr>
+			</table>
+		</aside>
+		<?php
 		
 			}
-			?>
+		?>
 			
 			
-			
-			
+			<!--<img id="racePic" class="animated slideInRight" src="$RaceName"+".jpg"/>-->
+	
+		
 		</section>
+		<button>Choose This Race</button>
 		<footer>&#169; 2017 &#9889; Team Rachet</footer>
 	</body>
 </html>
