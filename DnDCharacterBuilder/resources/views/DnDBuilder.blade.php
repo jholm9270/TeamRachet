@@ -10,9 +10,6 @@
 		<link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
 	</head>
 	<body>
-	<?php
-	//$race ="Human";
-	?>
 		<header>Character Builder</header>
 		<aside>
 			<ul>
@@ -38,22 +35,51 @@
 			<p>This is where each races information will be displayed<p>
 			<?php
 			if(isset($displayValues)){
-			//print_r($displayValues);
-			
-			print_r($displayValues -> Race_Name);
-		$RaceName = print_r($displayValues -> Race_Name, true);
-		$StrModifier = print_r($displayValues -> Strength, true);
-		$DexModifier = print_r($displayValues -> Dexterity, true);
-		$ChaModifier = print_r($displayValues -> Charisma, true);
-		$WisModifier = print_r($displayValues -> Wisdom, true);
-		$ConModifier = print_r($displayValues -> Constitution, true);
-		$IntModifier = print_r($displayValues -> Intelligence, true);
-		$Movespeed = print_r($displayValues -> Move_Speed, true);
-//			print($RaceName)
+		$RaceName = $displayValues -> Race_Name;
+		$StrModifier = $displayValues -> Strength;
+		$DexModifier = $displayValues -> Dexterity;
+		$ChaModifier = $displayValues -> Charisma;
+		$WisModifier = $displayValues -> Wisdom;
+		$ConModifier = $displayValues -> Constitution;
+		$IntModifier = $displayValues -> Intelligence;
+		$Movespeed = $displayValues -> Move_Speed;
+			?>
+					<aside>
+			<table>
+				<tr>
+					<td class="tdName">Strength</td>
+					<td id="Str"><?php echo $StrModifier ;?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Dexterity</td>
+					<td id="Dex"><?php echo $DexModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Constitution</td>
+					<td id="Con"><?php echo $ConModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Intelligence</td>
+					<td id="Int"><?php echo $IntModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Wisdom</td>
+					<td id="Wis"><?php echo $WisModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Charisma</td>
+					<td id="Cha"><?php echo $ChaModifier; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Movement Speed</td>
+					<td id="Mov"><?php echo $Movespeed; ?></td>
+				</tr>
+			</table>
+		</aside>
+		<?php
 		
 			}
-			?>
-			
+		?>
 			
 			
 			
