@@ -8,6 +8,7 @@
 			content="text/html; charset=iso-8859-1" />
 		<title>DnD Character Builder</title>
 		<link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	</head>
 	<body>
 		<header>Character Builder</header>
@@ -43,8 +44,10 @@
 		$ConModifier = $displayValues -> Constitution;
 		$IntModifier = $displayValues -> Intelligence;
 		$Movespeed = $displayValues -> Move_Speed;
+		
+		echo $RaceName;
 			?>
-					<aside>
+					<aside class="animated slideInLeft">
 			<table>
 				<tr>
 					<td class="tdName">Strength</td>
@@ -82,8 +85,11 @@
 		?>
 			
 			
-			
+			<!--<img id="racePic" class="animated slideInRight" src="$RaceName"+".jpg"/>-->
+	
+		
 		</section>
+		<button>Choose This Race</button>
 		<footer>&#169; 2017 &#9889; Team Rachet</footer>
 	</body>
 </html>

@@ -41,3 +41,8 @@ body {
 			a:hover  {
 				color: red;
 			}
+			button  {
+		    
+			margin-top: 40px;
+			margin-left: 40%;
+		}

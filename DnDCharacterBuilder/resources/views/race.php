@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<h1 id="raceName" class="animated zoomIn">
-		<?php print_r($displayValues -> Race_Name, True); ?>
+		<?php print_r($displayValues -> Race_Name); ?>
 		</h1>
 		<p id="raceInfo" class="animated fadeIn">
 			print displayValues for the race information
