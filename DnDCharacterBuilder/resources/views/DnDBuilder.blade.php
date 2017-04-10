@@ -7,7 +7,7 @@
 		<meta http-equiv="Content-Type"
 			content="text/html; charset=iso-8859-1" />
 		<title>DnD Character Builder</title>
-		<link rel="stylesheet" href="<?php echo asset('stylings/style.css')?>;" type="text/css" />
+		<link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
 	</head>
 	<body>
 	<?php
