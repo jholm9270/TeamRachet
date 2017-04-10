@@ -1,0 +1,36 @@
+body  {
+			height: 300px;
+			width: 700px;
+		}
+		h1 {
+			text-align: center;
+			
+		}
+		aside {
+			position: absolute;
+			display: inline;
+			-webkit-animation-delay: 100ms;
+			-moz-animation-delay: 100ms;
+			-MS-animation-delay: 100ms;
+		}
+		#racePic {
+			padding-left: 400px;
+			-webkit-animation-delay: 100ms;
+			-moz-animation-delay: 100ms;
+			-MS-animation-delay: 100ms;
+		}
+		
+		p  {
+			width: 120px;
+			position: absolute;
+			display: inline;
+			padding-left: 200px;
+			-webkit-animation-delay: 500ms;
+			-moz-animation-delay: 500ms;
+			-MS-animation-delay: 500ms;
+		}
+		button  {
+		    
+			margin-top: 40px;
+			margin-left: 40%;
+		}
