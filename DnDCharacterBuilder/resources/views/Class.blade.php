@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
@@ -11,29 +10,27 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	</head>
 	<body>
-		<header>Character Builder</header>
+		<header>Choose Your Class</header>
 		<aside>
 			<ul>
 				
-				<li><a href="/DnDBuilder/Human">Human</a></li>
-				<li><a href="/DnDBuilder/Elf (Drow)">Elf (Drow)</a></li>
-				<li><a href="/DnDBuilder/Elf (High)">High  Elf</a></li>
-				<li><a href="/DnDBuilder/Elf (Wood)">Wood  Elf</a></li>
-				<li><a href="/DnDBuilder/Dwarf (Hill)">Hill Dwarf</a></li>
-				<li><a href="/DnDBuilder/Dwarf (Mountain)">Mountain Dwarf</a></li>
-				<li><a href="/DnDBuilder/Halfling (Lightfoot)">Lightfoot Halfling</a></li>
-				<li><a href="/DnDBuilder/Halfling (Stout)">Stout Halfling</a></li>
-				<li><a href="/DnDBuilder/Dragonborn">Dragonborn</a></li>
-				<li><a href="/DnDBuilder/Gnome (Forest)">Forest Gnome</a></li>
-				<li><a href="/DnDBuilder/Gnome (Rock)">Rock Gnome</a></li>
-				<li><a href="/DnDBuilder/Half-Elf">Half-Elf</a></li>
-				<li><a href="/DnDBuilder/Half-Orc">Half-Orc</a></li>
-				<li><a href="/DnDBuilder/Tiefling">Tiefling</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Barbarian">Barbarian</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Bard">Bard</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Cleric">Cleric</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Druid">Druid</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Fighter">Fighter</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Monk">Monk</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Paladin">Paladin</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Ranger">Ranger</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Rogue">Rogue</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Sorcerer">Sorcerer</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Warlock">Warlock</a></li>
+				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Wizard">Wizard</a></li>
 				<!---->
 			</ul>
 		</aside>
 		<section>
-			<p>This is where each races information will be displayed<p>
+			<p>This is where each class will be displayed<p>
 			<?php
 			if(isset($displayValues)){
 		$RaceName = $displayValues -> Race_Name;
@@ -44,7 +41,6 @@
 		$ConModifier = $displayValues -> Constitution;
 		$IntModifier = $displayValues -> Intelligence;
 		$Movespeed = $displayValues -> Move_Speed;
-		$LinkToClass = $RaceName."/Class"; 
 		
 		echo $RaceName;
 			?>
@@ -80,9 +76,6 @@
 				</tr>
 			</table>
 		</aside>
-		
-		<a href=<?php echo $LinkToClass ?>> Choose this Race! </a>
-		<!--<button>Choose This Race</button>-->
 		<?php
 		
 			}
@@ -93,7 +86,7 @@
 	
 		
 		</section>
-		
+		<button><?php echo $race ?></button>
 		<footer>&#169; 2017 &#9889; Team Rachet</footer>
 	</body>
 </html>

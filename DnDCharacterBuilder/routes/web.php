@@ -22,22 +22,25 @@ Route::get('Dice', function () {
     return view('Dice');
 });
 
-Route::get('race', function () {
-    return view('race');
-});
-
-Route::get('race/{race}', function($race=null){
-	$queryResult = DB::select('select * from Race where Race_Name = ?', [$race]);
-	
-	$displayValues = $queryResult[0];
-	return view('DnDBuilder',['displayValues'=>$displayValues]);
-});
 
 Route::get('DnDBuilder/{race}', function($race=null){
 	$queryResult = DB::select('select * from Race where Race_Name = ?', [$race]);
 	$displayValues = $queryResult[0];
 	return view('DnDBuilder',['displayValues'=>$displayValues]);
 });
+
+Route::get('DnDBuilder/{race}/Class', function($race){
+	
+return view('Class', ['race'=>$race]);
+});
+
+Route::get('DnDBuilder/{race}/Class/{class}', function($race=null, $class=null){
+$queryResult = DB::select('select * from Race where Race_Name = ?', [$race]);
+	$displayValues = $queryResult[0];
+	return view('Class',['race'=>$race], ['displayValues'=>$displayValues]);
+});
+
+
 
 Route::get('php', function () {
     return phpinfo();
