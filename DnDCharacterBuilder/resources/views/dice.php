@@ -45,7 +45,7 @@ for ($row = 0; $row < 6; $row++) {
 echo"<p><b>$totals[$row]</b></p>";
 }
 ?>
-<form action="multidice.php" method="post">
+<form action=<?php echo "/DnDBuilder/".urlencode($displayValues["Race"] -> Race_Name)."/Class/".urlencode($displayValues["Class"] -> Class_Name)."/Dice"?> method="submit">
     <button name="click" class="click">Reroll?</button>
 </form> 
  <ul class="ul">
@@ -113,6 +113,7 @@ echo"<p><b>$totals[$row]</b></p>";
 	<li>Intelligence:	<div  id="Int"></div></li>
 	<li>Wisdom:	<div id="Wis"></div></li>
 	<li>Charisma:	<div id="Char"></div></li>
+	
 </ul>
 
 
@@ -127,6 +128,19 @@ echo"<p><b>$totals[$row]</b></p>";
 </script>
 <button id="button" class="click">Finalize!</button>
 
+<?php
+if(isset($displayValues["Race"])){
+		$RaceName = $displayValues["Race"] -> Race_Name;
+		$StrModifier = $displayValues["Race"] -> Strength;
+		$DexModifier = $displayValues["Race"] -> Dexterity;
+		$ChaModifier = $displayValues["Race"] -> Charisma;
+		$WisModifier = $displayValues["Race"] -> Wisdom;
+		$ConModifier = $displayValues["Race"] -> Constitution;
+		$IntModifier = $displayValues["Race"] -> Intelligence;
+		$Movespeed = $displayValues["Race"] -> Move_Speed;
+			}
+			?>
+		
 </body>
 </html>
 

@@ -22,6 +22,16 @@ Route::get('Dice', function () {
     return view('Dice');
 });
 
+Route::get('DnDBuilder/{race}/Class/{class}/Dice', function ($race=null, $class=null) {
+	//grab race values
+	$queryResultRace = DB::select('select * from Race where Race_Name = ?', [urldecode($race)]);
+	$queryResultClass = DB::select('select * from Class where Class_Name = ?', [$class]);
+	$displayValues = array(
+	 "Race" => $queryResultRace[0],
+	 "Class" => $queryResultClass[0],
+	 );
+    return view('Dice',['race'=>$race],['displayValues'=>$displayValues]);
+});
 
 Route::get('DnDBuilder/{race}', function($race=null){
 	$queryResult = DB::select('select * from Race where Race_Name = ?', [$race]);
@@ -35,9 +45,18 @@ return view('Class', ['race'=>$race]);
 });
 
 Route::get('DnDBuilder/{race}/Class/{class}', function($race=null, $class=null){
-$queryResult = DB::select('select * from Race where Race_Name = ?', [$race]);
-	$displayValues = $queryResult[0];
-	return view('Class',['race'=>$race], ['displayValues'=>$displayValues]);
+	//grab race values
+	$queryResultRace = DB::select('select * from Race where Race_Name = ?', [$race]);
+	$queryResultClass = DB::select('select * from Class where Class_Name = ?', [$class]);
+	$displayValues = array(
+	 "Race" => $queryResultRace[0],
+	 "Class" => $queryResultClass[0],
+	 );
+	//grab class values
+	
+	$displayValuesClass = $queryResultClass[0];
+	
+	return view('Class',['race'=>$race],['displayValues'=>$displayValues]);
 });
 
 

@@ -14,33 +14,34 @@
 		<aside>
 			<ul>
 				
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Barbarian">Barbarian</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Bard">Bard</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Cleric">Cleric</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Druid">Druid</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Fighter">Fighter</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Monk">Monk</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Paladin">Paladin</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Ranger">Ranger</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Rogue">Rogue</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Sorcerer">Sorcerer</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Warlock">Warlock</a></li>
-				<li><a href="/DnDBuilder/<?php echo $race ?>/Class/Wizard">Wizard</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Barbarian">Barbarian</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Bard">Bard</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Cleric">Cleric</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Druid">Druid</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Fighter">Fighter</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Monk">Monk</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Paladin">Paladin</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Ranger">Ranger</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Rogue">Rogue</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Sorcerer">Sorcerer</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Warlock">Warlock</a></li>
+				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Wizard">Wizard</a></li>
 				<!---->
 			</ul>
 		</aside>
 		<section>
 			<p>This is where each class will be displayed<p>
 			<?php
-			if(isset($displayValues)){
-		$RaceName = $displayValues -> Race_Name;
-		$StrModifier = $displayValues -> Strength;
-		$DexModifier = $displayValues -> Dexterity;
-		$ChaModifier = $displayValues -> Charisma;
-		$WisModifier = $displayValues -> Wisdom;
-		$ConModifier = $displayValues -> Constitution;
-		$IntModifier = $displayValues -> Intelligence;
-		$Movespeed = $displayValues -> Move_Speed;
+			//if(null !==($displayValues["Race"])){
+				if(isset($displayValues["Race"])){
+		$RaceName = $displayValues["Race"] -> Race_Name;
+		$StrModifier = $displayValues["Race"] -> Strength;
+		$DexModifier = $displayValues["Race"] -> Dexterity;
+		$ChaModifier = $displayValues["Race"] -> Charisma;
+		$WisModifier = $displayValues["Race"] -> Wisdom;
+		$ConModifier = $displayValues["Race"] -> Constitution;
+		$IntModifier = $displayValues["Race"] -> Intelligence;
+		$Movespeed = $displayValues["Race"] -> Move_Speed;
 		
 		echo $RaceName;
 			?>
@@ -79,14 +80,72 @@
 		<?php
 		
 			}
+		
+			if(isset($displayValues["Class"])){
+				
+		$ClassName = $displayValues["Class"] -> Class_Name;
+		$PrimaryAbility = $displayValues["Class"] -> Primary_Ability;
+		$SavingThrows = $displayValues["Class"] -> Saving_Throw_Proficiencies;
+		$HitDie = $displayValues["Class"] -> Hit_Die;
+		$FirstLevelHP = $displayValues["Class"] -> First_Level_Hitpoints;
+		$Armor = $displayValues["Class"] -> Armor;
+		$Weapons = $displayValues["Class"] -> Weapons;
+		$Description = $displayValues["Class"] -> Description;
+		$LinkToDice = "/DnDBuilder/".urlencode($RaceName)."/Class/".urlencode($ClassName)."/Dice"; 
+		
+		echo $ClassName;
+			?>
+			
+			<table>
+				<tr>
+					<td class="Class">Class:</td>
+					<td id="Class"><?php echo $ClassName ;?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Primary Ability:</td>
+					<td id="Primary"><?php echo $PrimaryAbility; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Saving Throw Proficiencies:</td>
+					<td id="Saving"><?php echo $SavingThrows; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Hit Dice:</td>
+					<td id="dice"><?php echo "d".$HitDie; ?></td>
+				</tr>
+				<!--<tr>
+					<td class="tdName">First Level Hit Points:</td>
+					<td id="1HP"><?php echo $FirstLevelHP; ?></td>
+				</tr>
+				-->
+				<tr>
+					<td class="tdName">Armor: </td>
+					<td id="Armor"><?php echo $Armor; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Weapons: </td>
+					<td id="Weapon"><?php echo $Weapons; ?></td>
+				</tr>
+				
+				<!--<tr>
+					All null values in dataqbase currently
+				<td class="tdName">Description</td>
+					<td id="Desc"><?php //echo $Description; ?></td> -->
+				</tr>
+			</table>
+	<a href=<?php echo $LinkToDice ?>> Choose this Class! </a>
+		<?php
+		
+			}
 		?>
+		
 			
 			
 			<!--<img id="racePic" class="animated slideInRight" src="$RaceName"+".jpg"/>-->
 	
 		
 		</section>
-		<button><?php echo $race ?></button>
+		
 		<footer>&#169; 2017 &#9889; Team Rachet</footer>
 	</body>
 </html>
