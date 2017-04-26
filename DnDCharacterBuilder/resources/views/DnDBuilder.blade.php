@@ -15,17 +15,17 @@
 		<aside>
 			<ul>
 				
-				<li><a href="/DnDBuilder/Human">Humans</a></li>
-				<li><a href="/DnDBuilder/Elf (Drow)">Elf (Drow)</a></li>
-				<li><a href="/DnDBuilder/Elf (High)">High  Elf</a></li>
-				<li><a href="/DnDBuilder/Elf (Wood)">Wood  Elf</a></li>
-				<li><a href="/DnDBuilder/Dwarf (Hill)">Hill Dwarf</a></li>
-				<li><a href="/DnDBuilder/Dwarf (Mountain)">Mountain Dwarf</a></li>
-				<li><a href="/DnDBuilder/Halfling (Lightfoot)">Lightfoot Halfling</a></li>
-				<li><a href="/DnDBuilder/Halfling (Stout)">Stout Halfling</a></li>
+				<li><a href="/DnDBuilder/Human">Human</a></li>
+				<li><a href="/DnDBuilder/Elf%20(Drow)">Elf (Drow)</a></li>
+				<li><a href="/DnDBuilder/Elf%20(High)">High  Elf</a></li>
+				<li><a href="/DnDBuilder/Elf%20(Wood)">Wood  Elf</a></li>
+				<li><a href="/DnDBuilder/Dwarf%20(Hill)">Hill Dwarf</a></li>
+				<li><a href="/DnDBuilder/Dwarf%20Mountain)">Mountain Dwarf</a></li>
+				<li><a href="/DnDBuilder/Halfling%20(Lightfoot)">Lightfoot Halfling</a></li>
+				<li><a href="/DnDBuilder/Halfling%20(Stout)">Stout Halfling</a></li>
 				<li><a href="/DnDBuilder/Dragonborn">Dragonborn</a></li>
-				<li><a href="/DnDBuilder/Gnome (Forest)">Forest Gnome</a></li>
-				<li><a href="/DnDBuilder/Gnome (Rock)">Rock Gnome</a></li>
+				<li><a href="/DnDBuilder/Gnome%20(Forest)">Forest Gnome</a></li>
+				<li><a href="/DnDBuilder/Gnome%20(Rock)">Rock Gnome</a></li>
 				<li><a href="/DnDBuilder/Half-Elf">Half-Elf</a></li>
 				<li><a href="/DnDBuilder/Half-Orc">Half-Orc</a></li>
 				<li><a href="/DnDBuilder/Tiefling">Tiefling</a></li>
@@ -44,6 +44,7 @@
 		$ConModifier = $displayValues -> Constitution;
 		$IntModifier = $displayValues -> Intelligence;
 		$Movespeed = $displayValues -> Move_Speed;
+		$LinkToClass = "/DnDBuilder/".urlencode($RaceName)."/Class"; 
 		
 		echo $RaceName;
 			?>
@@ -79,6 +80,9 @@
 				</tr>
 			</table>
 		</aside>
+		
+		<a href=<?php echo $LinkToClass ?>> Choose this Race! </a>
+		<!--<button>Choose This Race</button>-->
 		<?php
 		
 			}
@@ -89,7 +93,7 @@
 	
 		
 		</section>
-		<button>Choose This Race</button>
+		
 		<footer>&#169; 2017 &#9889; Team Rachet</footer>
 	</body>
 </html>
