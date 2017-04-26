@@ -15,6 +15,19 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 <body>
+
+<?php
+if(isset($displayValues["Race"])){
+		$RaceName = $displayValues["Race"] -> Race_Name;
+		$StrModifier = $displayValues["Race"] -> Strength;
+		$DexModifier = $displayValues["Race"] -> Dexterity;
+		$ChaModifier = $displayValues["Race"] -> Charisma;
+		$WisModifier = $displayValues["Race"] -> Wisdom;
+		$ConModifier = $displayValues["Race"] -> Constitution;
+		$IntModifier = $displayValues["Race"] -> Intelligence;
+		$Movespeed = $displayValues["Race"] -> Move_Speed;
+			}
+			?>
 <?php
 //Dice Rolls
 $dice = array(
@@ -107,12 +120,12 @@ echo"<p><b>$totals[$row]</b></p>";
 </ul>
 
 <ul class="ul" id="hidden">
-	<li>Strength:	<div id="Str"></li>
-	<li>Dexterity:	<div id="Dex"></div></li>
-	<li>Constitution:	<div id="Con"></div></li>
-	<li>Intelligence:	<div  id="Int"></div></li>
-	<li>Wisdom:	<div id="Wis"></div></li>
-	<li>Charisma:	<div id="Char"></div></li>
+	<li>Strength:	<div id="Str"></div> + <?php echo $StrModifier ;?></li>
+	<li>Dexterity:	<div id="Dex"></div> + <?php echo $DexModifier ;?></li>
+	<li>Constitution:	<div id="Con"></div> + <?php echo $ConModifier ;?></li>
+	<li>Intelligence:	<div  id="Int"></div> + <?php echo $IntModifier ;?></li>
+	<li>Wisdom:	<div id="Wis"></div> + <?php echo $WisModifier ;?></li>
+	<li>Charisma:	<div id="Char"></div> + <?php echo $ChaModifier ;?></li>
 	
 </ul>
 
@@ -127,19 +140,6 @@ echo"<p><b>$totals[$row]</b></p>";
 	}
 </script>
 <button id="button" class="click">Finalize!</button>
-
-<?php
-if(isset($displayValues["Race"])){
-		$RaceName = $displayValues["Race"] -> Race_Name;
-		$StrModifier = $displayValues["Race"] -> Strength;
-		$DexModifier = $displayValues["Race"] -> Dexterity;
-		$ChaModifier = $displayValues["Race"] -> Charisma;
-		$WisModifier = $displayValues["Race"] -> Wisdom;
-		$ConModifier = $displayValues["Race"] -> Constitution;
-		$IntModifier = $displayValues["Race"] -> Intelligence;
-		$Movespeed = $displayValues["Race"] -> Move_Speed;
-			}
-			?>
 		
 </body>
 </html>
