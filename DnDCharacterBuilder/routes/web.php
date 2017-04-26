@@ -22,7 +22,7 @@ Route::get('Dice', function () {
     return view('Dice');
 });
 
-Route::get('DnDBuilder/{race}/Class/{class}/Dice', function ($race=null, $class=null) {
+Route::any('DnDBuilder/{race}/Class/{class}/Dice', function ($race=null, $class=null) {
 	//grab race values
 	$queryResultRace = DB::select('select * from Race where Race_Name = ?', [urldecode($race)]);
 	$queryResultClass = DB::select('select * from Class where Class_Name = ?', [$class]);

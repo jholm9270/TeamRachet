@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
 	lang="en">
 	<head>
 		<meta http-equiv="Content-Type"
@@ -42,7 +43,10 @@
 		$ConModifier = $displayValues["Race"] -> Constitution;
 		$IntModifier = $displayValues["Race"] -> Intelligence;
 		$Movespeed = $displayValues["Race"] -> Move_Speed;
-		
+		$data = $displayValues;
+$dataString = serialize($data);
+$_POST(data);
+$data = unserialize($dataString);
 		echo $RaceName;
 			?>
 					<aside class="animated slideInLeft">

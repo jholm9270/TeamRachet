@@ -16,6 +16,18 @@
   </head>
 <body>
 <?php
+
+if(isset($displayValues["Race"])){
+		//$RaceName = $displayValues["Race"] -> Race_Name;
+		$StrModifier = $displayValues["Race"] -> Strength;
+		$DexModifier = $displayValues["Race"] -> Dexterity;
+		$ChaModifier = $displayValues["Race"] -> Charisma;
+		$WisModifier = $displayValues["Race"] -> Wisdom;
+		$ConModifier = $displayValues["Race"] -> Constitution;
+		$IntModifier = $displayValues["Race"] -> Intelligence;
+		//$Movespeed = $displayValues["Race"] -> Move_Speed;
+			}
+			
 //Dice Rolls
 $dice = array(
 array(rand(1,6),rand(1,6),rand(1,6),rand(1,6)),
@@ -82,18 +94,32 @@ echo"<p><b>$totals[$row]</b></p>";
 			 $(this).remove();
 			 $("#undo").remove();
 			 var Str = $("#Strength").attr("data-roll");
-			 document.getElementById("Str").innerHTML = Str;
+			 document.getElementById("Str").innerHTML = <?php echo intval($StrModifier) ?> + parseInt(Str);
 			 var Dex = $("#Dexterity").attr("data-roll");
-			 document.getElementById("Dex").innerHTML = Dex;
+			 document.getElementById("Dex").innerHTML = parseInt(Dex) + <?php echo intval($DexModifier) ?>;
 			 var Con = $("#Constitution").attr("data-roll");
-			 document.getElementById("Con").innerHTML = Con;
+			 document.getElementById("Con").innerHTML = parseInt(Con) + <?php echo intval($ConModifier) ?>;
 			 var Int = $("#Intelligence").attr("data-roll");
-			 document.getElementById("Int").innerHTML = Int;
+			 document.getElementById("Int").innerHTML = parseInt(Int) + <?php echo intval($IntModifier) ?>;
 			 var Wis = $("#Wisdom").attr("data-roll");
-			 document.getElementById("Wis").innerHTML = Wis;
+			 document.getElementById("Wis").innerHTML = parseInt(Wis) + <?php echo intval($WisModifier) ?>;
 			 var Char = $("#Charisma").attr("data-roll");
-			 document.getElementById("Char").innerHTML = Char;
-           }
+			 document.getElementById("Char").innerHTML = parseInt(Char) + <?php echo intval($ChaModifier) ?>;
+			
+<?php
+ob_start();
+?> document.getElementById("Dex").innerHTML;
+<?php 
+$out1 = ob_get_contents();
+
+$stuff = array( $out1
+			); 
+		/*	$data = $displayValues;
+$dataString = serialize($data);
+$_POST[$dataString];
+$data = unserialize($dataString); */
+?>     
+      }
       );
 	});
 	</script>
@@ -128,18 +154,7 @@ echo"<p><b>$totals[$row]</b></p>";
 </script>
 <button id="button" class="click">Finalize!</button>
 
-<?php
-if(isset($displayValues["Race"])){
-		$RaceName = $displayValues["Race"] -> Race_Name;
-		$StrModifier = $displayValues["Race"] -> Strength;
-		$DexModifier = $displayValues["Race"] -> Dexterity;
-		$ChaModifier = $displayValues["Race"] -> Charisma;
-		$WisModifier = $displayValues["Race"] -> Wisdom;
-		$ConModifier = $displayValues["Race"] -> Constitution;
-		$IntModifier = $displayValues["Race"] -> Intelligence;
-		$Movespeed = $displayValues["Race"] -> Move_Speed;
-			}
-			?>
+
 		
 </body>
 </html>
