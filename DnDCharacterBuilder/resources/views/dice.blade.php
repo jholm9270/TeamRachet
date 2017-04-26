@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <style>
   .ui-widget-content {width: 40px; height: 40px; padding: 0.5em; text-align: center; }
   .ui-widget-header { width: 60px; height: 60px; padding: 1.5em; text-align: center; float: left; margin: 10px;}
@@ -15,18 +17,34 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 <body>
+
 <?php
+$final = false;
 
 if(isset($displayValues["Race"])){
-		//$RaceName = $displayValues["Race"] -> Race_Name;
+		$RaceName = $displayValues["Race"] -> Race_Name;
 		$StrModifier = $displayValues["Race"] -> Strength;
 		$DexModifier = $displayValues["Race"] -> Dexterity;
 		$ChaModifier = $displayValues["Race"] -> Charisma;
 		$WisModifier = $displayValues["Race"] -> Wisdom;
 		$ConModifier = $displayValues["Race"] -> Constitution;
 		$IntModifier = $displayValues["Race"] -> Intelligence;
-		//$Movespeed = $displayValues["Race"] -> Move_Speed;
+		$Movespeed = $displayValues["Race"] -> Move_Speed;
 			}
+			
+			if(isset($displayValues["Class"])){
+				
+		$ClassName = $displayValues["Class"] -> Class_Name;
+		$PrimaryAbility = $displayValues["Class"] -> Primary_Ability;
+		$SavingThrows = $displayValues["Class"] -> Saving_Throw_Proficiencies;
+		$HitDie = $displayValues["Class"] -> Hit_Die;
+		$FirstLevelHP = $displayValues["Class"] -> First_Level_Hitpoints;
+		$Armor = $displayValues["Class"] -> Armor;
+		$Weapons = $displayValues["Class"] -> Weapons;
+		$Description = $displayValues["Class"] -> Description;
+		$LinkToDice = "/DnDBuilder/".urlencode($RaceName)."/Class/".urlencode($ClassName)."/Dice"; 
+			}
+			
 			
 //Dice Rolls
 $dice = array(
@@ -56,6 +74,7 @@ $totals = array(array_sum($dice[0]), array_sum($dice[1]), array_sum($dice[2]), a
 for ($row = 0; $row < 6; $row++) {
 echo"<p><b>$totals[$row]</b></p>";
 }
+
 ?>
 <form action=<?php echo "/DnDBuilder/".urlencode($displayValues["Race"] -> Race_Name)."/Class/".urlencode($displayValues["Class"] -> Class_Name)."/Dice"?> method="submit">
     <button name="click" class="click">Reroll?</button>
@@ -87,9 +106,14 @@ echo"<p><b>$totals[$row]</b></p>";
       }
     });
   } );
+ 
   $(function() {
       $("#button").click( function()
            {
+	
+			
+				
+				
              $("#hidden").toggle("visibility");
 			 $(this).remove();
 			 $("#undo").remove();
@@ -105,21 +129,10 @@ echo"<p><b>$totals[$row]</b></p>";
 			 document.getElementById("Wis").innerHTML = parseInt(Wis) + <?php echo intval($WisModifier) ?>;
 			 var Char = $("#Charisma").attr("data-roll");
 			 document.getElementById("Char").innerHTML = parseInt(Char) + <?php echo intval($ChaModifier) ?>;
-			
-<?php
-ob_start();
-?> document.getElementById("Dex").innerHTML;
-<?php 
-$out1 = ob_get_contents();
-
-$stuff = array( $out1
-			); 
-		/*	$data = $displayValues;
-$dataString = serialize($data);
-$_POST[$dataString];
-$data = unserialize($dataString); */
-?>     
-      }
+			 
+			          
+			<?php $final =  true;?>
+			 }
       );
 	});
 	</script>
@@ -133,15 +146,68 @@ $data = unserialize($dataString); */
 </ul>
 
 <ul class="ul" id="hidden">
+<ul><i><b>Your Character:</b></i></ul>
+<aside class="animated slideInLeft">
+	<li>Race: <div id="Race"><?php echo $RaceName?></li>
 	<li>Strength:	<div id="Str"></li>
 	<li>Dexterity:	<div id="Dex"></div></li>
 	<li>Constitution:	<div id="Con"></div></li>
 	<li>Intelligence:	<div  id="Int"></div></li>
 	<li>Wisdom:	<div id="Wis"></div></li>
 	<li>Charisma:	<div id="Char"></div></li>
+	<li>Movement Speed: </td><div id="Mov"><?php echo $Movespeed; ?>
 	
+		</aside>
+			<table>
+				<tr>
+					<td class="Class">Class:</td>
+					<td id="Class"><?php echo $ClassName ;?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Primary Ability:</td>
+					<td id="Primary"><?php echo $PrimaryAbility; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Saving Throw Proficiencies:</td>
+					<td id="Saving"><?php echo $SavingThrows; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Hit Dice:</td>
+					<td id="dice"><?php echo "d".$HitDie; ?></td>
+				</tr>
+				<!--<tr>
+					<td class="tdName">First Level Hit Points:</td>
+					<td id="1HP"><?php echo $FirstLevelHP; ?></td>
+				</tr>
+				-->
+				<tr>
+					<td class="tdName">Armor: </td>
+					<td id="Armor"><?php echo $Armor; ?></td>
+				</tr>
+				<tr>
+					<td class="tdName">Weapons: </td>
+					<td id="Weapon">
+					<?php echo $Weapons;
+						//$exWeapons = explode(",", $Weapons);
+						//foreach($exWeapons as $x){
+						//print ($x . "\r\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+						//}
+						
+					?>
+					</td>
+				</tr>
+				
+				<!--<tr>
+					All null values in dataqbase currently
+				<td class="tdName">Description</td>
+					<td id="Desc"><?php //echo $Description; ?></td> -->
+				</tr>
+			</table>
 </ul>
+		
 
+
+	
 
 
 <button id="undo" onclick="undo()">Undo!</button>

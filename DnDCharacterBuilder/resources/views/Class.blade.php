@@ -43,10 +43,7 @@
 		$ConModifier = $displayValues["Race"] -> Constitution;
 		$IntModifier = $displayValues["Race"] -> Intelligence;
 		$Movespeed = $displayValues["Race"] -> Move_Speed;
-		$data = $displayValues;
-$dataString = serialize($data);
-$_POST(data);
-$data = unserialize($dataString);
+		
 		echo $RaceName;
 			?>
 					<aside class="animated slideInLeft">
@@ -97,7 +94,7 @@ $data = unserialize($dataString);
 		$Description = $displayValues["Class"] -> Description;
 		$LinkToDice = "/DnDBuilder/".urlencode($RaceName)."/Class/".urlencode($ClassName)."/Dice"; 
 		
-		echo $ClassName;
+		
 			?>
 			
 			<table>
@@ -137,7 +134,9 @@ $data = unserialize($dataString);
 					<td id="Desc"><?php //echo $Description; ?></td> -->
 				</tr>
 			</table>
-	<a href=<?php echo $LinkToDice ?>> Choose this Class! </a>
+	<form action=<?php echo $LinkToDice ?> method="submit">
+    <button name="click" class="click">Choose This Class</button>
+</form> 
 		<?php
 		
 			}
