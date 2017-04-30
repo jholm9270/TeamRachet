@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,14 +23,17 @@ Route::get('Dice', function () {
     return view('Dice');
 });
 
-Route::get('DnDBuilder/{race}/Class/{class}/Dice', function ($race=null, $class=null) {
+Route::any('DnDBuilder/{race}/Class/{class}/Dice', function ($race=null, $class=null) {
 	//grab race values
 	$queryResultRace = DB::select('select * from Race where Race_Name = ?', [urldecode($race)]);
+	//grab class values
 	$queryResultClass = DB::select('select * from Class where Class_Name = ?', [$class]);
+	//put them into the array
 	$displayValues = array(
 	 "Race" => $queryResultRace[0],
 	 "Class" => $queryResultClass[0],
 	 );
+	 
     return view('Dice',['race'=>$race],['displayValues'=>$displayValues]);
 });
 

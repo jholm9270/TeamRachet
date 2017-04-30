@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
 	lang="en">
 	<head>
 		<meta http-equiv="Content-Type"
@@ -93,7 +94,7 @@
 		$Description = $displayValues["Class"] -> Description;
 		$LinkToDice = "/DnDBuilder/".urlencode($RaceName)."/Class/".urlencode($ClassName)."/Dice"; 
 		
-		echo $ClassName;
+		
 			?>
 			
 			<table>
@@ -133,7 +134,9 @@
 					<td id="Desc"><?php //echo $Description; ?></td> -->
 				</tr>
 			</table>
-	<a href=<?php echo $LinkToDice ?>> Choose this Class! </a>
+	<form action=<?php echo $LinkToDice ?> method="submit">
+    <button name="click" class="click">Choose This Class</button>
+</form> 
 		<?php
 		
 			}
