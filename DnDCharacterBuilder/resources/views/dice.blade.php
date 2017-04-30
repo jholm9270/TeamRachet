@@ -17,6 +17,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 <body>
+<div id="dice">
 
 <<<<<<< HEAD:DnDCharacterBuilder/resources/views/dice.php
 <?php
@@ -94,7 +95,7 @@ echo"<p><b>$totals[$row]</b></p>";
 <form action=<?php echo "/DnDBuilder/".urlencode($displayValues["Race"] -> Race_Name)."/Class/".urlencode($displayValues["Class"] -> Class_Name)."/Dice"?> method="submit">
     <button name="click" class="click">Reroll?</button>
 </form> 
- <ul class="ul">
+ <ul class="ul"> 
 	<li id="1" data-roll="0" class="ui-widget-content"><?php echo $totals[0];?></li>
 	<li id="2" data-roll="0" class="ui-widget-content"><?php echo $totals[1];?></li>
 	<li id="3" data-roll="0" class="ui-widget-content"><?php echo $totals[2];?></li>
@@ -115,6 +116,7 @@ echo"<p><b>$totals[$row]</b></p>";
     $( ".ui-widget-header" ).droppable({
       drop: function(event, ui ) {     
        $(ui.draggable).draggable('disable');
+	   $(this).addClass( "ui-state-highlight" )
 	   $(this).droppable('disable');
 	   var id = ui.draggable.attr("data-roll");
 	   $(this).attr("data-roll", id);
@@ -125,10 +127,18 @@ echo"<p><b>$totals[$row]</b></p>";
   $(function() {
       $("#button").click( function()
            {
-	
+				 var Str = $("#Strength").attr("data-roll");
+				 var Dex = $("#Dexterity").attr("data-roll");
+				 var Con = $("#Constitution").attr("data-roll");
+				 var Int = $("#Intelligence").attr("data-roll");
+				 var Wis = $("#Wisdom").attr("data-roll");
+				 var Char = $("#Charisma").attr("data-roll");
+			if(Str == 0 || Dex == 0 || Con == 0 || Int == 0 || Wis == 0 || Char == 0){
+				alert("Missing Values!");
+			}
 			
-				
-				
+			else{	
+			 $("#dice").toggle("visibility");
              $("#hidden").toggle("visibility");
 			 $(this).remove();
 			 $("#undo").remove();
@@ -147,7 +157,8 @@ echo"<p><b>$totals[$row]</b></p>";
 			 
 			          
 			<?php $final =  true;?>
-			 }
+			}
+		}
       );
 	});
 	</script>
@@ -159,10 +170,10 @@ echo"<p><b>$totals[$row]</b></p>";
 <li id="Wisdom" data-roll="0" class="ui-widget-header">Wisdom</li>
 <li id="Charisma" data-roll="0" class="ui-widget-header">Charisma</li>
 </ul>
-
+</div>
 <ul class="ul" id="hidden">
 <<<<<<< HEAD:DnDCharacterBuilder/resources/views/dice.php
-	<li>Strength:	<div id="Str"></div> + <?php echo $StrModifier ;?></li>
+	<li>Strength:<div id="Str"></div> + <?php echo $StrModifier ;?></li>
 	<li>Dexterity:	<div id="Dex"></div> + <?php echo $DexModifier ;?></li>
 	<li>Constitution:	<div id="Con"></div> + <?php echo $ConModifier ;?></li>
 	<li>Intelligence:	<div  id="Int"></div> + <?php echo $IntModifier ;?></li>
@@ -172,7 +183,7 @@ echo"<p><b>$totals[$row]</b></p>";
 <ul><i><b>Your Character:</b></i></ul>
 <aside class="animated slideInLeft">
 	<li>Race: <div id="Race"><?php echo $RaceName?></li>
-	<li>Strength:	<div id="Str"></li>
+	<li>Strength:	<div id="Str"></div></li>
 	<li>Dexterity:	<div id="Dex"></div></li>
 	<li>Constitution:	<div id="Con"></div></li>
 	<li>Intelligence:	<div  id="Int"></div></li>
@@ -237,6 +248,7 @@ echo"<p><b>$totals[$row]</b></p>";
 <button id="undo" onclick="undo()">Undo!</button>
  <script>
   	function undo() {
+		$(".ui-widget-header").removeClass("ui-state-highlight");
 		$( ".ui-widget-content" ).draggable('enable');
 		$( ".ui-widget-header" ).droppable('enable')
 		$( ".ui-widget-header" ).attr("data-roll", 0);
