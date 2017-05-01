@@ -15,10 +15,10 @@
 			<h1>Character Builder</h1>
 			<table id="Stage">
 				<tr id="StgRow">
-					<td id="Stg">Race</td>
-					<td id="Stg" class="activeStg">Class</td>
-					<td id="Stg">Ability Points</td>
-					<td id="Stg">Final</td>
+					<td id="RaceStg">Race</td>
+					<td id="ClassStg" class="activeStg">Class</td>
+					<td id="AbtStg">Ability Points</td>
+					<td id="FinStg">Final</td>
 				</tr>
 			</table>
 		</header>

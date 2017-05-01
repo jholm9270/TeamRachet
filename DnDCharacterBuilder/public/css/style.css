@@ -17,7 +17,19 @@
 			.activeStg {
 				background-color: red;
 			}
-			#Stg {
+			#RaceStg {
+				border: 1px solid white;
+				text-align: center;
+			}
+			#ClassStg {
+				border: 1px solid white;
+				text-align: center;
+			}
+			#AbtStg {
+				border: 1px solid white;
+				text-align: center;
+			}
+			#FinStg {
 				border: 1px solid white;
 				text-align: center;
 			}

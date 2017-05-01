@@ -4,7 +4,6 @@
  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
   <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <style>
@@ -23,10 +22,10 @@
 			<h1>Character Builder</h1>
 			<table id="Stage">
 				<tr id="StgRow">
-					<td id="Stg">Race</td>
-					<td id="Stg">Class</td>
-					<td id="Stg" class="activeStg">Ability Points</td>
-					<td id="Stg">Final</td>
+					<td id="RaceStg">Race</td>
+					<td id="ClassStg">Class</td>
+					<td id="AbtStg" class="activeStg">Ability Points</td>
+					<td id="FinStg">Final</td>
 				</tr>
 			</table>
 		</header>
@@ -158,19 +157,25 @@ for ($row = 0; $row < 6; $row++) {
 			 $(this).remove();
 			 $("#undo").remove();
 			 $("td").removeClass("activeStg");
-			 var Str = $("#Strength").attr("data-roll");
-			 document.getElementById("Str").innerHTML = <?php echo intval($StrModifier) ?> + parseInt(Str);
-			 var Dex = $("#Dexterity").attr("data-roll");
-			 document.getElementById("Dex").innerHTML = parseInt(Dex) + <?php echo intval($DexModifier) ?>;
-			 var Con = $("#Constitution").attr("data-roll");
-			 document.getElementById("Con").innerHTML = parseInt(Con) + <?php echo intval($ConModifier) ?>;
-			 var Int = $("#Intelligence").attr("data-roll");
-			 document.getElementById("Int").innerHTML = parseInt(Int) + <?php echo intval($IntModifier) ?>;
-			 var Wis = $("#Wisdom").attr("data-roll");
-			 document.getElementById("Wis").innerHTML = parseInt(Wis) + <?php echo intval($WisModifier) ?>;
-			 var Char = $("#Charisma").attr("data-roll");
-			 document.getElementById("Char").innerHTML = parseInt(Char) + <?php echo intval($ChaModifier) ?>;
-			 
+			 $("#FinStg").addClass("activeStg");
+			 document.getElementById("Str1").innerHTML = parseInt(Str);
+			 document.getElementById("Str").innerHTML = Math.floor((parseInt(Str) + <?php echo intval($StrModifier) ?> -10)/2);
+			 document.getElementById("Str2").innerHTML = parseInt(Str) + Math.floor((parseInt(Str) + <?php echo intval($StrModifier) ?> -10)/2);
+			 document.getElementById("Dex1").innerHTML = parseInt(Dex);
+			 document.getElementById("Dex").innerHTML = Math.floor((parseInt(Dex) + <?php echo intval($DexModifier) ?> -10)/2);
+			 document.getElementById("Dex2").innerHTML = parseInt(Dex) + Math.floor((parseInt(Dex) + <?php echo intval($DexModifier) ?> -10)/2);
+		     document.getElementById("Con1").innerHTML = parseInt(Con);
+			 document.getElementById("Con").innerHTML = Math.floor((parseInt(Con) + <?php echo intval($ConModifier) ?> -10)/2);
+			 document.getElementById("Con2").innerHTML = parseInt(Con) + Math.floor((parseInt(Con) + <?php echo intval($ConModifier) ?> -10)/2);
+	      	 document.getElementById("Int1").innerHTML = parseInt(Int);
+			 document.getElementById("Int").innerHTML = Math.floor((parseInt(Int) + <?php echo intval($IntModifier) ?> -10)/2);
+			 document.getElementById("Int2").innerHTML = parseInt(Int) + Math.floor((parseInt(Int) + <?php echo intval($IntModifier) ?> -10)/2);
+			 document.getElementById("Wis1").innerHTML = parseInt(Wis);
+			 document.getElementById("Wis").innerHTML = Math.floor((parseInt(Wis) + <?php echo intval($WisModifier) ?> -10)/2);
+			 document.getElementById("Wis2").innerHTML = parseInt(Wis) + Math.floor((parseInt(Wis) + <?php echo intval($WisModifier) ?> -10)/2);
+			 document.getElementById("Char1").innerHTML = parseInt(Char);
+			 document.getElementById("Char").innerHTML = Math.floor((parseInt(Char) + <?php echo intval($ChaModifier) ?> -10)/2);
+			 document.getElementById("Char2").innerHTML = parseInt(Char) + Math.floor((parseInt(Char) + <?php echo intval($ChaModifier) ?> -10)/2);
 			          
 			<?php $final =  true;?>
 			}
@@ -189,25 +194,40 @@ for ($row = 0; $row < 6; $row++) {
 </ul>
 </div>
 </div>
-<ul class="ul" id="hidden">
-	<li>Strength:<div id="Str"></div> + <?php echo $StrModifier ;?></li>
-	<li>Dexterity:	<div id="Dex"></div> + <?php echo $DexModifier ;?></li>
-	<li>Constitution:	<div id="Con"></div> + <?php echo $ConModifier ;?></li>
-	<li>Intelligence:	<div  id="Int"></div> + <?php echo $IntModifier ;?></li>
-	<li>Wisdom:	<div id="Wis"></div> + <?php echo $WisModifier ;?></li>
-	<li>Charisma:	<div id="Char"></div> + <?php echo $ChaModifier ;?></li>
+<div id="hidden">
+<ul class="ul">
+	<aside id="list">
+	<li>Strength: <span id="Str1"></span> + <span id="Str"></span></li>
+	<li>Dexterity: <span id="Dex1"></span> + <span id="Dex"></span></li>
+	<li>Constitution: <span id="Con1"></span> + <span id="Con"></span></li>
+	<li>Intelligence: <span id="Int1"></span> + <span id="Int"></span></li>
+	<li>Wisdom: <span id="Wis1"></span> +	<span id="Wis"></span></li>
+	<li>Charisma: <span id="Char1"></span> + <span id="Char"></span></li>
+	</aside>
+</ul>
 <ul><i><b>Your Character:</b></i></ul>
-<aside class="animated slideInLeft">
-	<li>Race: <div id="Race"><?php echo $RaceName?></li>
-	<li>Strength:	<div id="Str"></div></li>
-	<li>Dexterity:	<div id="Dex"></div></li>
-	<li>Constitution:	<div id="Con"></div></li>
-	<li>Intelligence:	<div  id="Int"></div></li>
-	<li>Wisdom:	<div id="Wis"></div></li>
-	<li>Charisma:	<div id="Char"></div></li>
-	<li>Movement Speed: </td><div id="Mov"><?php echo $Movespeed; ?>
-	
-		</aside>
+<ul class="ul">
+	<aside class="animated slideInLeft">
+	<li><i><b>Race: </b></i><span id="Race"><?php echo $RaceName ?></span></li>
+	<li><i><b>Strength: </b></i><span id="Str2"></span></li>
+	<li><i><b>Dexterity: </b></i><span id="Dex2"></span></li>
+	<li><i><b>Constitution: </b></i><span id="Con2"></span></li>
+	<li><i><b>Intelligence: </b></i><span id="Int2"></span></li>
+	<li><i><b>Wisdom: </b></i><span id="Wis2"></span></li>
+	<li><i><b>Charisma: </b></i><span id="Char2"></span></li>
+	<li><i><b>Movement Speed: </b></i><span id="Mov"><?php echo $Movespeed; ?></span></li>
+	<li><i><b>Class: </b></i><span id="Class" class="Class"><?php echo $ClassName; ?></span></li>
+	<li><i><b>Primary Ability: </b></i><span id="Primary" class="tdName"><?php echo $PrimaryAbility; ?></span></li>
+	<li><i><b>Saving Throw Proficiencies: </b></i><span id="Saving" class="tdName"><?php echo $SavingThrows; ?></span></li>
+	<li><i><b>Hit Dice: </b></i><span id="dice" class="tdName"><?php echo "d".$HitDie; ?></span></li>
+	<li><i><b>First Level Hit Points: </b></i><span id="1HP" class="tdName"><?php echo $FirstLevelHP; ?></span></li>
+	<li><i><b>Armor: </b></i><span id="Armor" class="tdName"><?php echo $Armor; ?></span></li>
+	<li><i><b>Weapons: </b></i><span id="Weapon" class="tdName"><?php echo $Weapons; ?></span></li>
+	<!--<li><i><b>Description: </b></i><span id="Desc" class="tdName"><?php //echo $Description; ?></span></li>-->
+	</aside>
+</ul>
+
+<!--
 			<table>
 				<tr>
 					<td class="Class">Class:</td>
@@ -225,36 +245,24 @@ for ($row = 0; $row < 6; $row++) {
 					<td class="tdName">Hit Dice:</td>
 					<td id="dice"><?php echo "d".$HitDie; ?></td>
 				</tr>
-				<!--<tr>
+				<tr>
 					<td class="tdName">First Level Hit Points:</td>
 					<td id="1HP"><?php echo $FirstLevelHP; ?></td>
 				</tr>
-				-->
 				<tr>
 					<td class="tdName">Armor: </td>
 					<td id="Armor"><?php echo $Armor; ?></td>
 				</tr>
 				<tr>
 					<td class="tdName">Weapons: </td>
-					<td id="Weapon">
-					<?php echo $Weapons;
-						//$exWeapons = explode(",", $Weapons);
-						//foreach($exWeapons as $x){
-						//print ($x . "\r\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-						//}
-						
-					?>
-					</td>
+					<td id="Weapon"><?php echo $Weapons; ?></td>
+				</tr>	
+				<tr>
+					<td class="tdName">Description</td>
+					<td id="Desc"><?php //echo $Description; ?></td>
 				</tr>
-				
-				<!--<tr>
-					All null values in dataqbase currently
-				<td class="tdName">Description</td>
-					<td id="Desc"><?php //echo $Description; ?></td> -->
-				</tr>
-			</table>
-</ul>
-		
+			</table> -->
+</div>	
 
 
 	
