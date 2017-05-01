@@ -11,10 +11,21 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	</head>
 	<body>
-		<header>Character Builder</header>
-		<aside>
-			<ul>
-				
+		<header>
+			<h1>Character Builder</h1>
+			<table id="Stage">
+				<tr id="StgRow">
+					<td class="Stg" id="RaceStg">Race</td>
+					<td class="Stg" id="ClassStg">Class</td>
+					<td class="Stg" id="AblPntStg">Ability Points</td>
+					<td class="Stg" id="MagicStg">Magic</td>
+					<td class="Stg" id="FinalStg">Final</td>
+				</tr>
+			</table>
+		</header>
+		<div id="canvas" style="background-image: url('{{ asset('images/forest.jpg') }}');">
+		<aside id="list">
+			<ul>				
 				<li><a href="/DnDBuilder/Human">Human</a></li>
 				<li><a href="/DnDBuilder/Elf%20(Drow)">Elf (Drow)</a></li>
 				<li><a href="/DnDBuilder/Elf%20(High)">High  Elf</a></li>
@@ -29,11 +40,9 @@
 				<li><a href="/DnDBuilder/Half-Elf">Half-Elf</a></li>
 				<li><a href="/DnDBuilder/Half-Orc">Half-Orc</a></li>
 				<li><a href="/DnDBuilder/Tiefling">Tiefling</a></li>
-				<!---->
 			</ul>
 		</aside>
-		<section>
-			<p>This is where each races information will be displayed<p>
+			
 			<?php
 			if(isset($displayValues)){
 		$RaceName = $displayValues -> Race_Name;
@@ -44,56 +53,53 @@
 		$ConModifier = $displayValues -> Constitution;
 		$IntModifier = $displayValues -> Intelligence;
 		$Movespeed = $displayValues -> Move_Speed;
-		$LinkToClass = "/DnDBuilder/".urlencode($RaceName)."/Class"; 
-		
-		echo $RaceName;
+		$LinkToClass = "/DnDBuilder/".urlencode($RaceName)."/Class";
 			?>
-					<aside class="animated slideInLeft">
-			<table>
+			
+				<h1><?php echo $RaceName;?></h1>
+				<h2>Race Information</h2>
+					<table id="stats" class="animated slideInLeft">
 				<tr>
 					<td class="tdName">Strength</td>
-					<td id="Str"><?php echo $StrModifier ;?></td>
+					<td id="Str" class="mod"><?php echo $StrModifier ;?></td>
 				</tr>
 				<tr>
 					<td class="tdName">Dexterity</td>
-					<td id="Dex"><?php echo $DexModifier; ?></td>
+					<td id="Dex" class="mod"><?php echo $DexModifier; ?></td>
 				</tr>
 				<tr>
 					<td class="tdName">Constitution</td>
-					<td id="Con"><?php echo $ConModifier; ?></td>
+					<td id="Con" class="mod"><?php echo $ConModifier; ?></td>
 				</tr>
 				<tr>
 					<td class="tdName">Intelligence</td>
-					<td id="Int"><?php echo $IntModifier; ?></td>
+					<td id="Int" class="mod"><?php echo $IntModifier; ?></td>
 				</tr>
 				<tr>
 					<td class="tdName">Wisdom</td>
-					<td id="Wis"><?php echo $WisModifier; ?></td>
+					<td id="Wis" class="mod"><?php echo $WisModifier; ?></td>
 				</tr>
 				<tr>
 					<td class="tdName">Charisma</td>
-					<td id="Cha"><?php echo $ChaModifier; ?></td>
+					<td id="Cha" class="mod"><?php echo $ChaModifier; ?></td>
 				</tr>
 				<tr>
 					<td class="tdName">Movement Speed</td>
 					<td id="Mov"><?php echo $Movespeed; ?></td>
 				</tr>
 			</table>
-		</aside>
+			
+			<img src="<?php echo asset( "$RaceName" . '.jpg') ?>"/> 
+			
+			<p id="RaceData">
+				This is the section used to displaying the race's data. Information about who they are and any other pertinent data that may apply.
+			</p>
 		
-		<a href=<?php echo $LinkToClass ?>> Choose this Race! </a>
-		<!--<button>Choose This Race</button>-->
+		<a id="button" href=<?php echo $LinkToClass ?>> Choose this Race! </a>
 		<?php
-		
 			}
-		?>
-			
-			
-			<!--<img id="racePic" class="animated slideInRight" src="$RaceName"+".jpg"/>-->
-	
-		
-		</section>
-		
+		?>		
+		</div>
 		<footer>&#169; 2017 &#9889; Team Rachet</footer>
 	</body>
 </html>
