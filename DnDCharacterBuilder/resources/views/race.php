@@ -12,11 +12,11 @@
 		<p id="raceInfo" class="animated fadeIn">
 			print displayValues for the race information
 		</p>
-		<aside class="animated slideInLeft">
-			<table>
+		<aside>
+			<table  class="animated slideInLeft">
 				<tr>
 					<td class="tdName">Strength</td>
-					<td id="Str"><?php print($); ?></td>
+					<td id="Str"><?php print($displayValues -> Strength);?></td>
 				</tr>
 				<tr>
 					<td class="tdName">Dexterity</td>

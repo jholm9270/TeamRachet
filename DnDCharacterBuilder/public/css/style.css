@@ -13,13 +13,11 @@
 			
 			#Stage {
 				width: 100%;
-			}
-			
-			#RaceStg {
+			}	
+			.activeStg {
 				background-color: red;
 			}
-			
-			.Stg {
+			#Stg {
 				border: 1px solid white;
 				text-align: center;
 			}

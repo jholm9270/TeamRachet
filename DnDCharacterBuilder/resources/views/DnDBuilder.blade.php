@@ -15,11 +15,10 @@
 			<h1>Character Builder</h1>
 			<table id="Stage">
 				<tr id="StgRow">
-					<td class="Stg" id="RaceStg">Race</td>
-					<td class="Stg" id="ClassStg">Class</td>
-					<td class="Stg" id="AblPntStg">Ability Points</td>
-					<td class="Stg" id="MagicStg">Magic</td>
-					<td class="Stg" id="FinalStg">Final</td>
+					<td id="Stg" clas="activeStg" bgcolor="red">Race</td>
+					<td id="Stg" >Class</td>
+					<td id="Stg" >Ability Points</td>
+					<td id="Stg" >Final</td>
 				</tr>
 			</table>
 		</header>
@@ -31,7 +30,7 @@
 				<li><a href="/DnDBuilder/Elf%20(High)">High  Elf</a></li>
 				<li><a href="/DnDBuilder/Elf%20(Wood)">Wood  Elf</a></li>
 				<li><a href="/DnDBuilder/Dwarf%20(Hill)">Hill Dwarf</a></li>
-				<li><a href="/DnDBuilder/Dwarf%20Mountain)">Mountain Dwarf</a></li>
+				<li><a href="/DnDBuilder/Dwarf%20(Mountain)">Mountain Dwarf</a></li>
 				<li><a href="/DnDBuilder/Halfling%20(Lightfoot)">Lightfoot Halfling</a></li>
 				<li><a href="/DnDBuilder/Halfling%20(Stout)">Stout Halfling</a></li>
 				<li><a href="/DnDBuilder/Dragonborn">Dragonborn</a></li>

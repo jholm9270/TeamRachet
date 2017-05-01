@@ -8,18 +8,31 @@
   <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <style>
-  .ui-widget-content {width: 40px; height: 40px; padding: 0.5em; text-align: center; }
+  .ui-widget-content {width: 40px; height: 40px; padding: 0.5em; text-align: center; display: inline-block;}
   .ui-widget-header { width: 60px; height: 60px; padding: 1.5em; text-align: center; float: left; margin: 10px;}
-  .ul {list-style-type: none;}
+  .ul {list-style-type: none}
   #hidden { display: none;}
+  .table{display: table; margin: 0 auto;}
+  .click{margin: auto;}
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 <body>
+			<header>
+			<h1>Character Builder</h1>
+			<table id="Stage">
+				<tr id="StgRow">
+					<td id="Stg">Race</td>
+					<td id="Stg">Class</td>
+					<td id="Stg" class="activeStg">Ability Points</td>
+					<td id="Stg">Final</td>
+				</tr>
+			</table>
+		</header>
+	<div id="canvas" style="background-image: url('{{ asset('images/forest.jpg') }}');">
 <div id="dice">
 
-<<<<<<< HEAD:DnDCharacterBuilder/resources/views/dice.php
 <?php
 if(isset($displayValues["Race"])){
 		$RaceName = $displayValues["Race"] -> Race_Name;
@@ -32,8 +45,6 @@ if(isset($displayValues["Race"])){
 		$Movespeed = $displayValues["Race"] -> Move_Speed;
 			}
 			?>
-=======
->>>>>>> master:DnDCharacterBuilder/resources/views/dice.blade.php
 <?php
 $final = false;
 
@@ -88,21 +99,25 @@ array_pop($dice[5]);
 echo "<h1>Your rolls are:</h1>";
 $totals = array(array_sum($dice[0]), array_sum($dice[1]), array_sum($dice[2]), array_sum($dice[3]), array_sum($dice[4]), array_sum($dice[5]));
 for ($row = 0; $row < 6; $row++) {
-echo"<p><b>$totals[$row]</b></p>";
+
 }
 
 ?>
-<form action=<?php echo "/DnDBuilder/".urlencode($displayValues["Race"] -> Race_Name)."/Class/".urlencode($displayValues["Class"] -> Class_Name)."/Dice"?> method="submit">
-    <button name="click" class="click">Reroll?</button>
-</form> 
+<div class="table">
  <ul class="ul"> 
-	<li id="1" data-roll="0" class="ui-widget-content"><?php echo $totals[0];?></li>
-	<li id="2" data-roll="0" class="ui-widget-content"><?php echo $totals[1];?></li>
-	<li id="3" data-roll="0" class="ui-widget-content"><?php echo $totals[2];?></li>
-	<li id="4" data-roll="0" class="ui-widget-content"><?php echo $totals[3];?></li>
-	<li id="5" data-roll="0" class="ui-widget-content"><?php echo $totals[4];?></li>
-	<li id="6" data-roll="0" class="ui-widget-content"><?php echo $totals[5];?></li>
+	<li id="1" data-roll="0" class="ui-widget-content" ><?php echo $totals[0];?></li>
+	<li id="2" data-roll="0" class="ui-widget-content" ><?php echo $totals[1];?></li>
+	<li id="3" data-roll="0" class="ui-widget-content" ><?php echo $totals[2];?></li>
+	<li id="4" data-roll="0" class="ui-widget-content" ><?php echo $totals[3];?></li>
+	<li id="5" data-roll="0" class="ui-widget-content" ><?php echo $totals[4];?></li>
+	<li id="6" data-roll="0" class="ui-widget-content" ><?php echo $totals[5];?></li>
  </ul>
+ </div>
+ <div align="center">
+ <form action=<?php echo "/DnDBuilder/".urlencode($displayValues["Race"] -> Race_Name)."/Class/".urlencode($displayValues["Class"] -> Class_Name)."/Dice"?> method="submit">
+    <button name="click" class="click" >Reroll?</button>
+</form> 
+</div>
   <script>
  var test = [<?php Print($totals[0]);?>, <?php Print($totals[1]);?>, <?php Print($totals[2]);?>, <?php Print($totals[3]);?>, <?php Print($totals[4]);?>, <?php Print($totals[5]);?>];
  $("#1").attr("data-roll", test[0]);
@@ -125,7 +140,7 @@ echo"<p><b>$totals[$row]</b></p>";
   } );
  
   $(function() {
-      $("#button").click( function()
+      $("#finalize").click( function()
            {
 				 var Str = $("#Strength").attr("data-roll");
 				 var Dex = $("#Dexterity").attr("data-roll");
@@ -142,6 +157,7 @@ echo"<p><b>$totals[$row]</b></p>";
              $("#hidden").toggle("visibility");
 			 $(this).remove();
 			 $("#undo").remove();
+			 $("td").removeClass("activeStg");
 			 var Str = $("#Strength").attr("data-roll");
 			 document.getElementById("Str").innerHTML = <?php echo intval($StrModifier) ?> + parseInt(Str);
 			 var Dex = $("#Dexterity").attr("data-roll");
@@ -162,6 +178,7 @@ echo"<p><b>$totals[$row]</b></p>";
       );
 	});
 	</script>
+<div class="table">
 <ul class="ul">
 <li id="Strength" data-roll="0" class="ui-widget-header">Strength</li>
 <li id="Dexterity" data-roll="0" class="ui-widget-header">Dexterity</li>
@@ -171,15 +188,14 @@ echo"<p><b>$totals[$row]</b></p>";
 <li id="Charisma" data-roll="0" class="ui-widget-header">Charisma</li>
 </ul>
 </div>
+</div>
 <ul class="ul" id="hidden">
-<<<<<<< HEAD:DnDCharacterBuilder/resources/views/dice.php
 	<li>Strength:<div id="Str"></div> + <?php echo $StrModifier ;?></li>
 	<li>Dexterity:	<div id="Dex"></div> + <?php echo $DexModifier ;?></li>
 	<li>Constitution:	<div id="Con"></div> + <?php echo $ConModifier ;?></li>
 	<li>Intelligence:	<div  id="Int"></div> + <?php echo $IntModifier ;?></li>
 	<li>Wisdom:	<div id="Wis"></div> + <?php echo $WisModifier ;?></li>
 	<li>Charisma:	<div id="Char"></div> + <?php echo $ChaModifier ;?></li>
-=======
 <ul><i><b>Your Character:</b></i></ul>
 <aside class="animated slideInLeft">
 	<li>Race: <div id="Race"><?php echo $RaceName?></li>
@@ -190,7 +206,6 @@ echo"<p><b>$totals[$row]</b></p>";
 	<li>Wisdom:	<div id="Wis"></div></li>
 	<li>Charisma:	<div id="Char"></div></li>
 	<li>Movement Speed: </td><div id="Mov"><?php echo $Movespeed; ?>
->>>>>>> master:DnDCharacterBuilder/resources/views/dice.blade.php
 	
 		</aside>
 			<table>
@@ -244,7 +259,7 @@ echo"<p><b>$totals[$row]</b></p>";
 
 	
 
-
+<div align="center"> 
 <button id="undo" onclick="undo()">Undo!</button>
  <script>
   	function undo() {
@@ -254,13 +269,10 @@ echo"<p><b>$totals[$row]</b></p>";
 		$( ".ui-widget-header" ).attr("data-roll", 0);
 	}
 </script>
-<button id="button" class="click">Finalize!</button>
-<<<<<<< HEAD:DnDCharacterBuilder/resources/views/dice.php
-=======
 
+<button id="finalize" class="click">Finalize!</button>
+</div>
 
->>>>>>> master:DnDCharacterBuilder/resources/views/dice.blade.php
-		
 </body>
 </html>
 

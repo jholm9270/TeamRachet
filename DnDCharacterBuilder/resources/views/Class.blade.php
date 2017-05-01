@@ -11,8 +11,21 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	</head>
 	<body>
+		<header>
+			<h1>Character Builder</h1>
+			<table id="Stage">
+				<tr id="StgRow">
+					<td id="Stg">Race</td>
+					<td id="Stg" class="activeStg">Class</td>
+					<td id="Stg">Ability Points</td>
+					<td id="Stg">Final</td>
+				</tr>
+			</table>
+		</header>
+	<div id="canvas" style="background-image: url('{{ asset('images/forest.jpg') }}');">
+	<body>
 		<header>Choose Your Class</header>
-		<aside>
+		<aside id="list">
 			<ul>
 				
 				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Barbarian">Barbarian</a></li>
@@ -46,8 +59,8 @@
 		
 		echo $RaceName;
 			?>
-					<aside class="animated slideInLeft">
-			<table>
+					<aside>
+			<table class="animated slideInLeft">
 				<tr>
 					<td class="tdName">Strength</td>
 					<td id="Str"><?php echo $StrModifier ;?></td>
@@ -97,7 +110,7 @@
 		
 			?>
 			
-			<table>
+			<table class="animated slideInLeft">
 				<tr>
 					<td class="Class">Class:</td>
 					<td id="Class"><?php echo $ClassName ;?></td>
