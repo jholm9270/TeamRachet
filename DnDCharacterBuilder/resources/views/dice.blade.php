@@ -195,6 +195,7 @@ for ($row = 0; $row < 6; $row++) {
 </div>
 </div>
 <div id="hidden">
+<img src="<?php echo asset("$RaceName" . '.jpg') ?>"/> 
 <ul class="ul">
 	<aside id="list">
 	<li>Strength: <span id="Str1"></span> + <span id="Str"></span></li>
@@ -208,21 +209,22 @@ for ($row = 0; $row < 6; $row++) {
 <ul><i><b>Your Character:</b></i></ul>
 <ul class="ul">
 	<aside class="animated slideInLeft">
-	<li><i><b>Race: </b></i><span id="Race"><?php echo $RaceName ?></span></li>
-	<li><i><b>Strength: </b></i><span id="Str2"></span></li>
-	<li><i><b>Dexterity: </b></i><span id="Dex2"></span></li>
-	<li><i><b>Constitution: </b></i><span id="Con2"></span></li>
-	<li><i><b>Intelligence: </b></i><span id="Int2"></span></li>
-	<li><i><b>Wisdom: </b></i><span id="Wis2"></span></li>
-	<li><i><b>Charisma: </b></i><span id="Char2"></span></li>
-	<li><i><b>Movement Speed: </b></i><span id="Mov"><?php echo $Movespeed; ?></span></li>
-	<li><i><b>Class: </b></i><span id="Class" class="Class"><?php echo $ClassName; ?></span></li>
-	<li><i><b>Primary Ability: </b></i><span id="Primary" class="tdName"><?php echo $PrimaryAbility; ?></span></li>
-	<li><i><b>Saving Throw Proficiencies: </b></i><span id="Saving" class="tdName"><?php echo $SavingThrows; ?></span></li>
-	<li><i><b>Hit Dice: </b></i><span id="dice" class="tdName"><?php echo "d".$HitDie; ?></span></li>
-	<li><i><b>First Level Hit Points: </b></i><span id="1HP" class="tdName"><?php echo $FirstLevelHP; ?></span></li>
-	<li><i><b>Armor: </b></i><span id="Armor" class="tdName"><?php echo $Armor; ?></span></li>
-	<li><i><b>Weapons: </b></i><span id="Weapon" class="tdName"><?php echo $Weapons; ?></span></li>
+	<li><i><b>Race: </i><span id="Race"><?php echo $RaceName ?></span></b></li>
+	<li><i>Strength: </i><span id="Str2"></span></li>
+	<li><i>Dexterity: </i><span id="Dex2"></span></li>
+	<li><i>Constitution: </i><span id="Con2"></span></li>
+	<li><i>Intelligence: </i><span id="Int2"></span></li>
+	<li><i>Wisdom: </i><span id="Wis2"></span></li>
+	<li><i>Charisma: </i><span id="Char2"></span></li>
+	<li><i>Movement Speed: </i><span id="Mov"><?php echo $Movespeed; ?></span></li>
+	<li></br></li>
+	<li><i><b>Class: </b></i><span id="Class" class="Class"><?php echo $ClassName; ?></span></b></li>
+	<li><i>Primary Ability: </i><span id="Primary" class="tdName"><?php echo $PrimaryAbility; ?></span></li>
+	<li><i>Saving Throw Proficiencies: </i><span id="Saving" class="tdName"><?php echo $SavingThrows; ?></span></li>
+	<li><i>Hit Dice: </i><span id="dice" class="tdName"><?php echo "d".$HitDie; ?></span></li>
+	<li><i>First Level Hit Points: </i><span id="1HP" class="tdName"><?php echo $FirstLevelHP; ?></span></li>
+	<li><i>Armor: </i><span id="Armor" class="tdName"><?php echo $Armor; ?></span></li>
+	<li><i>Weapons: </i><span id="Weapon" class="tdName"><?php echo $Weapons; ?></span></li>
 	<!--<li><i><b>Description: </b></i><span id="Desc" class="tdName"><?php //echo $Description; ?></span></li>-->
 	</aside>
 </ul>
