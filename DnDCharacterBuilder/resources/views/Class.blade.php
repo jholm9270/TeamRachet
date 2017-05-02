@@ -27,7 +27,7 @@
 		<header>Choose Your Class</header>
 		<aside id="list">
 			<ul>
-				
+				<!-- each link corresponds with a query. -->
 				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Barbarian">Barbarian</a></li>
 				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Bard">Bard</a></li>
 				<li><a href="/DnDBuilder/<?php echo urldecode($race) ?>/Class/Cleric">Cleric</a></li>
@@ -44,9 +44,14 @@
 			</ul>
 		</aside>
 		<section>
-			<p>This is where each class will be displayed<p>
 			<?php
-			//if(null !==($displayValues["Race"])){
+			if(!(isset($displayValues["Class"]))){ ?>
+				<p>This is where each class will be displayed<p>
+			<?php
+			}
+			
+			
+			//check if race went through, then populate variables
 				if(isset($displayValues["Race"])){
 		$RaceName = $displayValues["Race"] -> Race_Name;
 		$StrModifier = $displayValues["Race"] -> Strength;
@@ -94,7 +99,7 @@
 		<?php
 		
 			}
-		
+		//check if the class query has been run. If it has populate the variables and display. 
 			if(isset($displayValues["Class"])){
 				
 		$ClassName = $displayValues["Class"] -> Class_Name;
@@ -127,11 +132,7 @@
 					<td class="tdName">Hit Dice:</td>
 					<td id="dice"><?php echo "d".$HitDie; ?></td>
 				</tr>
-				<!--<tr>
-					<td class="tdName">First Level Hit Points:</td>
-					<td id="1HP"><?php echo $FirstLevelHP; ?></td>
-				</tr>
-				-->
+				
 				<tr>
 					<td class="tdName">Armor: </td>
 					<td id="Armor"><?php echo $Armor; ?></td>
@@ -140,13 +141,8 @@
 					<td class="tdName">Weapons: </td>
 					<td id="Weapon"><?php echo $Weapons; ?></td>
 				</tr>
-				
-				<!--<tr>
-					All null values in dataqbase currently
-				<td class="tdName">Description</td>
-					<td id="Desc"><?php //echo $Description; ?></td> -->
-				</tr>
 			</table>
+			<!-- button to next page -->
 	<form action=<?php echo $LinkToDice ?> method="submit">
     <button name="click" class="click">Choose This Class</button>
 </form> 
@@ -155,9 +151,6 @@
 			}
 		?>
 		
-			
-			
-			<!--<img id="racePic" class="animated slideInRight" src="$RaceName"+".jpg"/>-->
 	
 		
 		</section>

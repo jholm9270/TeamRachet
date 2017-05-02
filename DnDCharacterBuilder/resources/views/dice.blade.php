@@ -229,41 +229,7 @@ for ($row = 0; $row < 6; $row++) {
 	</aside>
 </ul>
 
-<!--
-			<table>
-				<tr>
-					<td class="Class">Class:</td>
-					<td id="Class"><?php echo $ClassName ;?></td>
-				</tr>
-				<tr>
-					<td class="tdName">Primary Ability:</td>
-					<td id="Primary"><?php echo $PrimaryAbility; ?></td>
-				</tr>
-				<tr>
-					<td class="tdName">Saving Throw Proficiencies:</td>
-					<td id="Saving"><?php echo $SavingThrows; ?></td>
-				</tr>
-				<tr>
-					<td class="tdName">Hit Dice:</td>
-					<td id="dice"><?php echo "d".$HitDie; ?></td>
-				</tr>
-				<tr>
-					<td class="tdName">First Level Hit Points:</td>
-					<td id="1HP"><?php echo $FirstLevelHP; ?></td>
-				</tr>
-				<tr>
-					<td class="tdName">Armor: </td>
-					<td id="Armor"><?php echo $Armor; ?></td>
-				</tr>
-				<tr>
-					<td class="tdName">Weapons: </td>
-					<td id="Weapon"><?php echo $Weapons; ?></td>
-				</tr>	
-				<tr>
-					<td class="tdName">Description</td>
-					<td id="Desc"><?php //echo $Description; ?></td>
-				</tr>
-			</table> -->
+
 </div>	
 
 
@@ -284,5 +250,6 @@ for ($row = 0; $row < 6; $row++) {
 </div>
 
 </body>
+<footer>&#169; 2017 &#9889; Team Rachet</footer>
 </html>
 

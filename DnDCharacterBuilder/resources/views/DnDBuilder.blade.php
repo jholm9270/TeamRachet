@@ -89,10 +89,6 @@
 			</table>
 			
 			<img src="<?php echo asset("$RaceName" . '.jpg') ?>"/> 
-			
-			<p id="RaceData">
-				This is the section used to displaying the race's data. Information about who they are and any other pertinent data that may apply.
-			</p>
 		
 		<a id="button" href=<?php echo $LinkToClass ?>> Choose this Race! </a>
 		<?php
